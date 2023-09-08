@@ -5,9 +5,10 @@ const { MongoClient } = require("mongodb");
 const url = "mongodb+srv://arun:W3KzwFTqMim3sTHL@cluster0.gfh0lbg.mongodb.net/"
 const client = new MongoClient(url);
 const dbName = "busbooking";
+const db = client.db(dbName);
+const col = db.collection("bus");
 module.exports.busDetails = async (req, res, next) => {  
-    const db = client.db(dbName);
-    const col = db.collection("bus");
+   
     db.collection(col).find().toArray(function(e, d) {
         if(!e) {res.send(d);}
         else {console.log('Error' + Json.stringfy(err, undefined, 2)); } 
