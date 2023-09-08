@@ -1,17 +1,10 @@
 const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectID; 
 var db = mongoose.connection;
-
-const { MongoClient } = require('mongodb');
-const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
-  const db = client.db('busbooking'); // Replace with your database name
-    const collection = db.collection('bus'); // Replace with your collection name
+ 
 module.exports.busDetails = async (req, res, next) => {  
      
-    db.collection(collection).find().toArray(function(e, d) {
+    db.collection('mongodb+srv://arun:W3KzwFTqMim3sTHL@cluster0.gfh0lbg.mongodb.net/busbooking.bus').find().toArray(function(e, d) {
         if(!e) {res.send(d);}
         else {console.log('Error' + Json.stringfy(err, undefined, 2)); } 
     });  
