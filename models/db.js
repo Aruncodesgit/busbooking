@@ -15,3 +15,4 @@ require('./booking.model');
 require('./user.model'); 
 require('./feedback.model'); 
 require('./places.model'); 
+require('./coupons.model')
