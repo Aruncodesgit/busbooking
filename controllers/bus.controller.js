@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectID; 
 var db = mongoose.connection;
 const { MongoClient } = require("mongodb");
-const url = "mongodb+srv://arun:W3KzwFTqMim3sTHL@cluster0.gfh0lbg.mongodb.net/busbooking"
+const url = "mongodb+srv://arun:W3KzwFTqMim3sTHL@cluster0.gfh0lbg.mongodb.net/"
 const client = new MongoClient(url);
 const dbName = "busbooking";
 module.exports.busDetails = async (req, res, next) => {  
