@@ -14,3 +14,4 @@ require('./bus.model');
 require('./booking.model');   
 require('./user.model'); 
 require('./feedback.model'); 
+require('./places.model'); 
