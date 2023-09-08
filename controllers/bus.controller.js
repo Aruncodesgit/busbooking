@@ -9,7 +9,7 @@ const db = client.db(dbName);
 const col = db.collection("bus");
 module.exports.busDetails = async (req, res, next) => {  
    
-    db.collection(col).find().toArray(function(e, d) {
+    col.find().toArray(function(e, d) {
         if(!e) {res.send(d);}
         else {console.log('Error' + Json.stringfy(err, undefined, 2)); } 
     });  
