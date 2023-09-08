@@ -31,16 +31,12 @@ module.exports.busDetailsById = async (req, res, next) => {
  
 module.exports.busSearch = async (req, res, next) => { 
     const { from, to , category, type } = req.query; 
-   
-    // db.collection("bus").find({ from, to , category, type}).toArray(function(e, d) {
-    //     if(!e) {res.send(d);}
-    //     else {console.log('Error' + Json.stringfy(err, undefined, 2)); } 
-    // }); 
+    
 
-    Buses.find({ from, to , category, type}).toArray(function(e, d) {
-        if(!e) {res.send(d);}
-        else {console.log('Error' + Json.stringfy(err, undefined, 2)); } 
-    }); 
+    Buses.find({from, to , category, type}, (err, docs) => {
+        if (!err) { res.send(docs); }
+        else { console.log('Error' + Json.stringfy(err, undefined, 2)); }
+    });
     
     
 } 
