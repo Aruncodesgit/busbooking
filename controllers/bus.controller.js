@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectID; 
 var db = mongoose.connection;
- 
+const { MongoClient } = require("mongodb");
+const url = "mongodb+srv://arun:W3KzwFTqMim3sTHL@cluster0.gfh0lbg.mongodb.net/busbooking"
+const client = new MongoClient(url);
+const dbName = "busbooking";
 module.exports.busDetails = async (req, res, next) => {  
-     
-    db.collection('mongodb+srv://arun:W3KzwFTqMim3sTHL@cluster0.gfh0lbg.mongodb.net/busbooking.bus').find().toArray(function(e, d) {
+    const db = client.db(dbName);
+    const col = db.collection("bus");
+    db.collection(col).find().toArray(function(e, d) {
         if(!e) {res.send(d);}
         else {console.log('Error' + Json.stringfy(err, undefined, 2)); } 
     });  
