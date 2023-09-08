@@ -4,7 +4,8 @@ var db = mongoose.connection;
 const Bus = mongoose.model('Bus');
 const Places = mongoose.model('Places');
 
-module.exports.busDetails = async (req, res, next) => {   
+module.exports.busDetails = async (req, res, next) => {  
+
     Bus.find((err, docs) => {
         if (!err) { res.send(docs); }
         else { console.log('Error' + Json.stringfy(err, undefined, 2)); }
