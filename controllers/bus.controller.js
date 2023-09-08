@@ -2,10 +2,12 @@ const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectID; 
 var db = mongoose.connection;
 //const Bus = mongoose.model('Bus');
-const mongodb = context.services.get("mongodb-atlas");
-const busCollection = mongodb.db("busbooking").collection("bus");
+//const mongodb = context.services.get("mongodb-atlas");
+//const busCollection = mongodb.db("busbooking").collection("bus");
+const busCollection = client.db('busbooking').collection('bus');
 
 module.exports.busDetails = async (req, res, next) => {  
+    
     db.collection(busCollection).find().toArray(function(e, d) {
         if(!e) {res.send(d);}
         else {console.log('Error' + Json.stringfy(err, undefined, 2)); } 
