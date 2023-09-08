@@ -1,12 +1,12 @@
 {
     "development": {
         "PORT": 3000,
-        "MONGODB_URI": "mongodb://localhost:27017/money-management",
+        "MONGODB_URI": "mongodb://localhost:27017/busbooking",
         "JWT_SECRET": "SECRET#123",
         "JWT_EXP": "2d"
     },
     "production": { 
-        "MONGODB_URI": "mongodb+srv://arun:W3KzwFTqMim3sTHL@cluster0.gfh0lbg.mongodb.net/money-management",
+        "MONGODB_URI": "mongodb+srv://arun:W3KzwFTqMim3sTHL@cluster0.gfh0lbg.mongodb.net/busbooking",
         "JWT_SECRET": "SECRET#123",
         "JWT_EXP": "2d"
     }
