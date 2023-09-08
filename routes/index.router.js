@@ -21,8 +21,8 @@ router.put('/register/:id', ctrlUser.updateRegister);
 
  
 router.get('/busDetails' , ctrlbus.busDetails); 
-// router.get('/busDetailsById/:id', ctrlbus.busDetailsById);
-// router.get('/searchBus' , ctrlbus.busSearch);
+router.get('/busDetailsById/:id', ctrlbus.busDetailsById);
+router.get('/searchBus' , ctrlbus.busSearch);
 router.get('/placesDetails' , ctrlbus.placesDetails); 
 
 router.get('/couponsDetails' , ctrlCoupons.couponsDetails); 
