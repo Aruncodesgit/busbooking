@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectID; 
 var db = mongoose.connection;
-//const Bus = mongoose.model('Bus');
-//const mongodb = context.services.get("mongodb-atlas");
-//const busCollection = mongodb.db("busbooking").collection("bus");
+
+const { MongoClient } = require('mongodb');
+
+const uri = 'mongodb+srv://arun:W3KzwFTqMim3sTHL@cluster0.gfh0lbg.mongodb.net/busbooking';
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 const busCollection = client.db('busbooking').collection('bus');
 
 module.exports.busDetails = async (req, res, next) => {  
