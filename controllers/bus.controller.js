@@ -42,7 +42,7 @@ module.exports.busSearch = async (req, res, next) => {
         if(!e) {res.send(d);}
         else {console.log('Error' + Json.stringfy(err, undefined, 2)); } 
     }); 
-
+    
     
 } 
 
