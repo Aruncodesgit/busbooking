@@ -5,9 +5,11 @@ var db = mongoose.connection;
 const Coupons = mongoose.model('Coupons');
 
 module.exports.couponsDetails = async (req, res, next) => {  
-    Coupons.find().toArray(function(e, d) {
-        if(!e) {res.send(d);}
-        else {console.log('Error' + Json.stringfy(err, undefined, 2)); } 
-    });  
+     
+    Coupons.find((err, docs) => {
+        if (!err) { res.send(docs); }
+        else { console.log('Error' + Json.stringfy(err, undefined, 2)); }
+    });
+
 }
     
