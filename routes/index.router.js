@@ -2,7 +2,12 @@ const express = require('express');
 const router = express.Router(); 
 const jwtHelper = require('../config/jwtHelper'); 
 require('../config/passportConfig');
+var cors = require('cors')
 
+var corsOptions = {
+    origin: 'https://shy-erin-penguin-wrap.cyclic.cloud',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
 
 const ctrlUser = require('../controllers/user.controller'); 
 const ctrlbus = require('../controllers/bus.controller'); 
@@ -20,7 +25,7 @@ router.put('/register/:id', ctrlUser.updateRegister);
 
 
  
-router.get('/busDetails' , ctrlbus.busDetails); 
+router.get('/busDetails' , cors(corsOptions), ctrlbus.busDetails); 
 router.get('/busDetailsById/:id', ctrlbus.busDetailsById);
 router.get('/searchBus' , ctrlbus.busSearch);
 router.get('/placesDetails' , ctrlbus.placesDetails); 
