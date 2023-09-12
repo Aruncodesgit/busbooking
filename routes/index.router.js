@@ -16,7 +16,7 @@ router.get('/userDetails', ctrlUser.userDetails);
 router.get('/registerDetails/:id', ctrlUser.registerGetById);
 
 router.post('/authenticate', ctrlUser.authenticate); 
-router.get('/userProfile', jwtHelper.verifyJwtToken, ctrlUser.userProfile);
+router.get('/userProfile', cors(), jwtHelper.verifyJwtToken, ctrlUser.userProfile);
 router.put('/register/:id', ctrlUser.updateRegister);
 
 
