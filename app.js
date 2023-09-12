@@ -21,7 +21,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+    origin: ['https://shy-erin-penguin-wrap.cyclic.cloud/api']
+}));
 app.use(passport.initialize());  
 app.use('/api', rtsIndex);
 app.set('view engine', 'ejs')
