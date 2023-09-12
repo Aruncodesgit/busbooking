@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router(); 
 const jwtHelper = require('../config/jwtHelper'); 
-require('../config/passportConfig');
-var cors = require('cors')
+require('../config/passportConfig'); 
 
  
 const ctrlUser = require('../controllers/user.controller'); 
@@ -16,12 +15,12 @@ router.get('/userDetails', ctrlUser.userDetails);
 router.get('/registerDetails/:id', ctrlUser.registerGetById);
 
 router.post('/authenticate', ctrlUser.authenticate); 
-router.get('/userProfile', cors(), jwtHelper.verifyJwtToken, ctrlUser.userProfile);
+router.get('/userProfile',   jwtHelper.verifyJwtToken, ctrlUser.userProfile);
 router.put('/register/:id', ctrlUser.updateRegister);
 
 
  
-router.get('/busDetails' , cors(), ctrlbus.busDetails); 
+router.get('/busDetails' ,  ctrlbus.busDetails); 
 router.get('/busDetailsById/:id', ctrlbus.busDetailsById);
 router.get('/searchBus' , ctrlbus.busSearch);
 router.get('/placesDetails' , ctrlbus.placesDetails); 
