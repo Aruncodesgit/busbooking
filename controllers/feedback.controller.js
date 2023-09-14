@@ -5,6 +5,7 @@ const Feedback = mongoose.model('Feedback');
 module.exports.feedback = (req, res, next) => {
     var feedback = new Feedback();
     feedback.feedback = req.body.feedback; 
+    feedback.rating = req.body.rating; 
     feedback.user_id = req._id;
     feedback.save((err, doc) => {
         if (!err) {
