@@ -7,6 +7,9 @@ module.exports.booking = (req, res, next) => {
     booking.busId = req.body.busId;
     booking.bookedDate = req.body.bookedDate;
     booking.busFare  = req.body.busFare;
+    booking.promoID  = req.body.promoID;
+    booking.promoAmount  = req.body.promoAmount;
+    booking.finalAmoutWithPromo  = req.body.finalAmoutWithPromo;
     booking.busFrom  = req.body.busFrom;
     booking.busTo  = req.body.busTo;
     booking.busTimeFrom  = req.body.busTimeFrom;
