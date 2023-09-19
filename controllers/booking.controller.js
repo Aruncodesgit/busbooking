@@ -1,11 +1,18 @@
 const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectID;
 const Booking = mongoose.model('Booking');
+const generateUniqueId = require('generate-unique-id');
 
 module.exports.booking = (req, res, next) => {
+    const busID = generateUniqueId({
+        length: 6,
+        useLetters: false
+    });  
+
     var booking = new Booking();
     booking.busId = req.body.busId;
     booking.bookedDate = req.body.bookedDate;
+    booking.bookingID = 'My-Travel' + busID;
     booking.busFare  = req.body.busFare;
     booking.promoID  = req.body.promoID;
     booking.promoAmount  = req.body.promoAmount;
