@@ -3,6 +3,7 @@ var bookingSchema = new mongoose.Schema({
 
     busId :  String,
     bookedSeats :   [String],
+    bookingID: String,
     travellerDetails : [  ],
     seatType :  String,
     busFare :  [  ],
