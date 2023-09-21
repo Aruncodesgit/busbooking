@@ -18,8 +18,8 @@ module.exports.feedback = (req, res, next) => {
     });
 }
 
-// module.exports.feedbackgDetails = async (req, res, next) => {
-//     const booking = await Feedback.find({ user_id: req._id });
-//     res.json(booking)
+module.exports.feedbackgDetails = async (req, res, next) => {
+    const feedback = await Feedback.find({ user_id: req._id });
+    res.json(feedback)
 
-// } 
+} 

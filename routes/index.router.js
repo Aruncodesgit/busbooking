@@ -36,6 +36,8 @@ router.get('/bookingDetailsById/:id',jwtHelper.verifyJwtToken,  ctrlbooking.book
 
 
 router.post('/feedback' , jwtHelper.verifyJwtToken, ctrlfeedback.feedback); 
+router.get('/feedbackgDetails',jwtHelper.verifyJwtToken,  ctrlfeedback.feedbackgDetails); 
+
 module.exports = router;
 
 
