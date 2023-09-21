@@ -5,7 +5,7 @@ const generateUniqueId = require('generate-unique-id');
 
 module.exports.booking = (req, res, next) => {
     const busID = generateUniqueId({
-        length: 6,
+        length: 4,
         useLetters: false
     });  
 
