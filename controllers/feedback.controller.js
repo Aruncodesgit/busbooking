@@ -18,7 +18,7 @@ module.exports.feedback = (req, res, next) => {
     });
 }
 
-module.exports.feedbackgDetails = async (req, res, next) => {
+module.exports.feedbackDetails = async (req, res, next) => {
     const feedback = await Feedback.find({ user_id: req._id });
     res.json(feedback)
 
