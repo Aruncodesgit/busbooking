@@ -35,7 +35,7 @@ module.exports.register = async (req, res, next) => {
             } 
             else {
                 if (err.code == 11000)
-                    res.status(422).send(['Duplicate name adrress or Emp. ID found.']);
+                    res.status(422).send(['Duplicate email found']);
 
                 else
                     return next(err);
