@@ -30,10 +30,10 @@ module.exports.busDetailsById = async (req, res, next) => {
 }
  
 module.exports.busSearch = async (req, res, next) => { 
-    const { from, to , category, type } = req.query; 
+    const { from, to } = req.query; 
     
 
-    Buses.find({from, to , category, type}, (err, docs) => {
+    Buses.find({from, to }, (err, docs) => {
         if (!err) { res.send(docs); }
         else { console.log('Error' + Json.stringfy(err, undefined, 2)); }
     });
