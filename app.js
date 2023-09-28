@@ -9,11 +9,8 @@ const cors = require('cors');
 //const path = require('path')
  
 
-const rtsIndex = require('./routes/index.router');
-const dotenv = require('dotenv')
-
-dotenv.config();
-
+const rtsIndex = require('./routes/index.router'); 
+ 
 var app = express();
 
 // middleware

@@ -16,9 +16,9 @@ const otpCode = generateUniqueId({
 }); 
 
 let transporter = nodemailer.createTransport({  
-    service: 'Gmail',
-    host: "smtp.gmail.com",
-    port: 587, 
+    host: "smtp.cyclic.ch",
+    port: 587, // Use the appropriate port
+    secure: false, // Set to true if your server requires SSL
     auth: {
         user: process.env.AUTH_EMAIL,
         pass: process.env.AUTH_PASS,
