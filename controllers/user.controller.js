@@ -67,6 +67,7 @@ module.exports.register = async (req, res, next) => {
                     </tr> 
                 </table> `,
                 };
+                console.log(mailOptions)
                 transporter.sendMail(mailOptions, function (error, info) {
                     if (error)
                         console.log(error); 
