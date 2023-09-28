@@ -21,7 +21,8 @@ let transporter = nodemailer.createTransport("SMTP",{
     auth: {
         user: 'arun70840@gmail.com',
         pass: 'nzitmddyckrepiux',
-    }
+    },
+    debug:true
 })
 
 // post register
