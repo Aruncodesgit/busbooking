@@ -18,8 +18,11 @@ var userSchema = new mongoose.Schema({
         minlength: [4, 'Password must be atleast 4 character long']
     }, 
     phone: {
-        type: String,
+        type: Number,
     },   
+    otp : {
+        type: Number,
+    },
     shortName : {
         type: String,
     }, 
