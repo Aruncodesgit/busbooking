@@ -29,6 +29,7 @@ module.exports.register = async (req, res, next) => {
     user.password = await bcrypt.hash(user.password, salt);
     var shortName = user.fullName.substring(0, 2);
     user.shortName = shortName;
+    user.otp = req.body.otp;
     user.save((err, doc) => {
             if (!err) {
                 res.send(doc); 
@@ -89,10 +90,15 @@ module.exports.authenticate = (req, res, next) => {
         if (err) return res.status(400).json(err);
         // registered user
         else if (user) { 
-            
-            res.status(200).json({ _id: user._id, fullName: user.fullName, role: user.role, "token": user.generateJwt() });
-        }
+            if (user.otp == 'yes') {
+                res.status(200).json({ _id: user._id, fullName: user.fullName, role: user.role, "token": user.generateJwt() });
+                
+            }
+            else { 
+                return res.status(404).json({ status: false, message: 'OTP has not been validated' })
 
+            }
+        } 
         // unknown user or wrong password
         else return res.status(404).json(info);
     })(req, res);
