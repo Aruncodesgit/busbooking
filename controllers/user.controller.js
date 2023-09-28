@@ -13,34 +13,20 @@ const jwt = require('jsonwebtoken');
 const otpCode = generateUniqueId({
     length: 4,
     useLetters: false
-}); 
+});  
 
 let transporter = nodemailer.createTransport({  
     host: "smtp.gmail.com",
     port: 465, 
-    secure: false,
+    secure: true,
     auth: {
         user: 'arun70840@gmail.com',
         pass: 'nzitmddyckrepiux',
     }, 
-    tls: {
-        // do not fail on invalid certs
+    tls: { 
         rejectUnauthorized: false,
       },
 })
-
-// let transporter = nodemailer.createTransport({  
-//     host: "smtp.gmail.com",
-//     port: 465, 
-//     secure: true,
-//     auth: {
-//         user: 'arun70840@gmail.com',
-//         pass: 'nzitmddyckrepiux',
-//     }, 
-//     tls: { 
-//         rejectUnauthorized: false,
-//       },
-// })
  
 module.exports.register = async (req, res, next) => {
 
