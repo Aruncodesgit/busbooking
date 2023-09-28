@@ -23,6 +23,10 @@ let transporter = nodemailer.createTransport({
         user: process.env.AUTH_EMAIL,
         pass: process.env.AUTH_PASS,
     }, 
+    tls: {
+        // do not fail on invalid certs
+        rejectUnauthorized: false,
+      },
 })
 
 // post register
