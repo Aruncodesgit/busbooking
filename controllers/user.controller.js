@@ -95,16 +95,35 @@ module.exports.updateRegister = (req, res, next) => {
 
     var user = { 
         phone:req.body.phone 
-    };
-
-
-
+    }; 
     User.findByIdAndUpdate(req.params.id, { $set: user }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in employee update:' + JSON.stringfy(err, undefined, 2)); }
     });
 }
 
+module.exports.otpUpdate = (req, res, next) => {
+    if (!ObjectId.isValid(req.params.id))
+        return res.status(400).send(` No record found with given id : ${req.params.id}`);
+
+    var user = { 
+        otp:req.body.otp 
+    }; 
+
+    User.findById(req.params.id, { otpNumber}, (err, doc) => { 
+        if(!err){
+            console.log(otpNumber)
+        }  
+        else {
+            console.log(err)
+        }
+    })
+
+    User.findByIdAndUpdate(req.params.id, { $set: user }, { new: true }, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in employee update:' + JSON.stringfy(err, undefined, 2)); }
+    });
+}
 
 module.exports.userDetails = async (req, res, next) => {  
     User.find((err, docs) => {
