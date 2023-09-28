@@ -18,17 +18,30 @@ const otpCode = generateUniqueId({
 let transporter = nodemailer.createTransport({  
     host: "smtp.gmail.com",
     port: 465, 
-    secure: true,
+    secure: false,
     auth: {
         user: 'arun70840@gmail.com',
         pass: 'nzitmddyckrepiux',
     }, 
-    tls: { 
+    tls: {
+        // do not fail on invalid certs
         rejectUnauthorized: false,
       },
 })
 
-// post register
+// let transporter = nodemailer.createTransport({  
+//     host: "smtp.gmail.com",
+//     port: 465, 
+//     secure: true,
+//     auth: {
+//         user: 'arun70840@gmail.com',
+//         pass: 'nzitmddyckrepiux',
+//     }, 
+//     tls: { 
+//         rejectUnauthorized: false,
+//       },
+// })
+ 
 module.exports.register = async (req, res, next) => {
 
     var user = new User();
