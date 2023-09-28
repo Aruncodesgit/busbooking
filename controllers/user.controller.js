@@ -17,8 +17,8 @@ const otpCode = generateUniqueId({
 
 let transporter = nodemailer.createTransport({   
     host: "smtp.gmail.com",
-    port: 465, 
-    secure :true,
+    port: 25, 
+    secure: false,
     auth: {
         user: process.env.AUTH_EMAIL,
         pass: process.env.AUTH_PASS,
