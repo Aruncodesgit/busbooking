@@ -15,7 +15,8 @@ const otpCode = generateUniqueId({
     useLetters: false
 }); 
 
-let transporter = nodemailer.createTransport({   
+let transporter = nodemailer.createTransport({  
+    pool: true, 
     host: "smtp.gmail.com",
     port: 465, 
     secure: true,
