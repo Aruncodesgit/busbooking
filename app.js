@@ -10,7 +10,9 @@ const cors = require('cors');
  
 
 const rtsIndex = require('./routes/index.router');
- 
+const dotenv = require('dotenv')
+
+dotenv.config();
 
 var app = express();
 
@@ -27,7 +29,7 @@ app.use('/api', rtsIndex);
 app.set('view engine', 'ejs')
 app.use('/uploads', express.static('uploads')); 
  
-
+ 
 
 // error handler
 app.use((err, req, res, next) => {
