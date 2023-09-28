@@ -21,7 +21,7 @@ var userSchema = new mongoose.Schema({
         type: Number,
     },   
     otp : {
-        type: Number,
+        type: String,
     },
     shortName : {
         type: String,
