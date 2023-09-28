@@ -19,7 +19,7 @@ let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'arun70840@gmail.com',
-        pass: 'evwphfaaowaeyxrm',
+        pass: 'nzitmddyckrepiux',
     }
 })
 
@@ -42,7 +42,7 @@ module.exports.register = async (req, res, next) => {
                     from: 'arun70840@gmail.com',
                     to: user.email,
                     subject: 'My Travels',
-                    html: ` <table width="600px" style="    border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
+                    html: ` <table width="600px" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
                     <tr>
                         <td align="center" colspan="2" style=" font-size: 25px; background-color: #0d61b7;height: 100px; color:#fff;text-align: center;">
                             Verify Email
