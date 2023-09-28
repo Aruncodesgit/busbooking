@@ -70,6 +70,8 @@ module.exports.register = async (req, res, next) => {
                 transporter.sendMail(mailOptions, function (error, info) {
                     if (error)
                         console.log(error); 
+                    else 
+                    console.log(info)
                 })
             } 
             else {
