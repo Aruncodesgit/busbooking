@@ -108,16 +108,7 @@ module.exports.otpUpdate = (req, res, next) => {
 
     var user = { 
         otp:req.body.otp 
-    }; 
-
-    User.findById(req.params.id, { otpNumber}, (err, doc) => { 
-        if(!err){
-            console.log(otpNumber)
-        }  
-        else {
-            console.log(err)
-        }
-    })
+    };  
 
     User.findByIdAndUpdate(req.params.id, { $set: user }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }
