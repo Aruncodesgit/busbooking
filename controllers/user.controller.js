@@ -23,10 +23,10 @@ let transporter = nodemailer.createTransport({
         user: 'arun70840@gmail.com',
         pass: 'nzitmddyckrepiux',
     }, 
-    tls: {
+     tls: {
         // do not fail on invalid certs
         rejectUnauthorized: false,
-    },
+      },
 })
 
 // post register
