@@ -77,6 +77,7 @@ module.exports.register = async (req, res, next) => {
                     if (error)
                         console.log(error);  
                 })
+                transporter.verify().then(console.log).catch(console.error);
             } 
             else {
                 if (err.code == 11000)
