@@ -15,9 +15,11 @@ const otpCode = generateUniqueId({
     useLetters: false
 }); 
 
-let transporter = nodemailer.createTransport({
+let transporter = nodemailer.createTransport({sendmail: true,
     service: 'gmail',
     host: 'smpt.gmail.com',
+    port:465,
+    secure:true,
     auth: {
         user: 'arun70840@gmail.com',
         pass: 'nzitmddyckrepiux',
@@ -67,13 +69,10 @@ module.exports.register = async (req, res, next) => {
             
                     </tr> 
                 </table> `,
-                };
-                console.log(mailOptions)
+                }; 
                 transporter.sendMail(mailOptions, function (error, info) {
                     if (error)
-                        console.log(error); 
-                    else 
-                    console.log(info)
+                        console.log(error);  
                 })
             } 
             else {
