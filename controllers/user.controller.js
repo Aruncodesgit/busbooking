@@ -61,7 +61,7 @@ module.exports.register = async (req, res, next) => {
                     <tr>
                         <td align="center" style=" letter-spacing: 10px; padding: 40px 50px 30px 50px!important;color:#000; font-weight: 300; font-size: 64px;
                          ">
-                            ` + otpCode + ` 
+                            ` + user.otpNumber + ` 
                         </td>
             
                     </tr> 
