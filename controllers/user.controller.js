@@ -6,8 +6,7 @@ const User = mongoose.model('User');
 var db = mongoose.connection;
 var nodemailer = require('nodemailer');
 const bcrypt = require('bcryptjs');
-const e = require('express');
-const generateUniqueId = require('generate-unique-id');
+const e = require('express'); 
 const jwt = require('jsonwebtoken'); 
 
 let transporter = nodemailer.createTransport({  
@@ -23,12 +22,8 @@ let transporter = nodemailer.createTransport({
       },
 })
  
-module.exports.register = async (req, res, next) => {
-
-    const otpCode = generateUniqueId({
-        length: 4,
-        useLetters: false
-    });  
+module.exports.register = async (req, res, next) => { 
+    var otpCode = Math.floor(1000 + Math.random() * 9000); 
     
     var user = new User();
     user.fullName = req.body.fullName;  
