@@ -18,7 +18,7 @@ router.post('/authenticate', ctrlUser.authenticate);
 router.get('/userProfile',   jwtHelper.verifyJwtToken, ctrlUser.userProfile);
 router.put('/register/:id', ctrlUser.updateRegister);
 
-router.put('/otpUpdate/:id', ctrlUser.otpUpdate);
+//router.put('/otpUpdate/:id', ctrlUser.otpUpdate);
  
 router.get('/busDetails' ,  ctrlbus.busDetails); 
 router.get('/busDetailsById/:id', ctrlbus.busDetailsById);
