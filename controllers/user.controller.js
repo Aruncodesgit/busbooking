@@ -16,7 +16,7 @@ const otpCode = generateUniqueId({
 }); 
 
 let transporter = nodemailer.createTransport({  
-    host: 'smtp.ethereal.email',
+    host: 'smtp.gmail.com',
     port: 587,
     auth: {
         user: 'arun70840@gmail.com',
