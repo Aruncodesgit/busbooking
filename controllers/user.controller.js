@@ -8,12 +8,7 @@ var nodemailer = require('nodemailer');
 const bcrypt = require('bcryptjs');
 const e = require('express');
 const generateUniqueId = require('generate-unique-id');
-const jwt = require('jsonwebtoken');
-
-const otpCode = generateUniqueId({
-    length: 4,
-    useLetters: false
-});  
+const jwt = require('jsonwebtoken'); 
 
 let transporter = nodemailer.createTransport({  
     host: "smtp.gmail.com",
@@ -30,6 +25,11 @@ let transporter = nodemailer.createTransport({
  
 module.exports.register = async (req, res, next) => {
 
+    const otpCode = generateUniqueId({
+        length: 4,
+        useLetters: false
+    });  
+    
     var user = new User();
     user.fullName = req.body.fullName;  
     user.email = req.body.email;
