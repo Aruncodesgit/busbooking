@@ -7,16 +7,21 @@ var db = mongoose.connection;
 var nodemailer = require('nodemailer');
 const bcrypt = require('bcryptjs');
 const e = require('express');
-
+const generateUniqueId = require('generate-unique-id');
 const jwt = require('jsonwebtoken');
 
-// let transporter = nodemailer.createTransport({
-//     service: 'gmail',
-//     auth: {
-//         user: 'arun70840@gmail.com',
-//         pass: 'evwphfaaowaeyxrm',
-//     }
-// })
+const otpCode = generateUniqueId({
+    length: 4,
+    useLetters: false
+}); 
+
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'arun70840@gmail.com',
+        pass: 'evwphfaaowaeyxrm',
+    }
+})
 
 // post register
 module.exports.register = async (req, res, next) => {
@@ -33,6 +38,39 @@ module.exports.register = async (req, res, next) => {
     user.save((err, doc) => {
             if (!err) {
                 res.send(doc); 
+                var mailOptions = {
+                    from: 'arun70840@gmail.com',
+                    to: user.email,
+                    subject: 'My Travels',
+                    html: ` <table width="600px" style="    border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
+                    <tr>
+                        <td align="center" colspan="2" style=" font-size: 25px; background-color: #0d61b7;height: 100px; color:#fff;text-align: center;">
+                            Verify Email
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" colspan="2"
+                            style=" padding:60px 50px 10px 50px;color:#000; font-weight: 300; font-size:18px" valign="middle">
+                            Here is your One Time Password</td>
+                    </tr>
+                    <tr>
+                        <td align="center" colspan="2"
+                            style=" padding: 0px 50px;color:#666464; font-weight: 300; font-size:14px" valign="middle">
+                            to validate your email address</td>
+                    </tr>
+                    <tr>
+                        <td align="center" style=" letter-spacing: 10px; padding: 40px 50px 30px 50px!important;color:#000; font-weight: 300; font-size: 64px;
+                         ">
+                            ` + otpCode + ` 
+                        </td>
+            
+                    </tr> 
+                </table> `,
+                };
+                transporter.sendMail(mailOptions, function (error, info) {
+                    if (error)
+                        console.log(error); 
+                })
             } 
             else {
                 if (err.code == 11000)
