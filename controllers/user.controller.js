@@ -15,11 +15,9 @@ const otpCode = generateUniqueId({
     useLetters: false
 }); 
 
-let transporter = nodemailer.createTransport({sendmail: true,
-    service: 'gmail',
-    host: 'https://centipede-shrug.cyclic.cloud',
-    port:587,
-    secure:false,
+let transporter = nodemailer.createTransport({  
+    host: 'smtp.ethereal.email',
+    port: 587,
     auth: {
         user: 'arun70840@gmail.com',
         pass: 'nzitmddyckrepiux',
