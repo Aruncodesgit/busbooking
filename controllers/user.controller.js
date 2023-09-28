@@ -23,8 +23,7 @@ let transporter = nodemailer.createTransport({
         user: 'arun70840@gmail.com',
         pass: 'nzitmddyckrepiux',
     }, 
-    tls: {
-        // do not fail on invalid certs
+    tls: { 
         rejectUnauthorized: false,
       },
 })
@@ -41,6 +40,7 @@ module.exports.register = async (req, res, next) => {
     var shortName = user.fullName.substring(0, 2);
     user.shortName = shortName;
     user.otp = req.body.otp;
+    user.otpNumber = otpCode
     user.save((err, doc) => {
             if (!err) {
                 res.send(doc); 
