@@ -18,6 +18,7 @@ var bookingSchema = new mongoose.Schema({
     bookedDate  :String,
     status  :String,
     bookedDate  :String,
+    totalSeat:  Number,
     user_id :{
         type: mongoose.Schema.Types.ObjectId, 
         ref: "User",

@@ -26,6 +26,7 @@ module.exports.booking = (req, res, next) => {
     booking.bookedSeats = req.body.bookedSeats;
     booking.travellerDetails = req.body.travellerDetails;
     booking.status = req.body.status;
+    booking.totalSeat = req.body.totalSeat;
     booking.user_id = req._id;
     booking.save((err, doc) => {
         if (!err) {
