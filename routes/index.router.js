@@ -29,7 +29,7 @@ router.get('/placesDetails' , ctrlbus.placesDetails);
 router.get('/couponsDetails' , ctrlCoupons.couponsDetails); 
 
 router.get('/helpDetails' ,  ctrlhelp.helpDetails); 
-
+router.get('/helpDetails/:id', ctrlhelp.helpDetailsById);
  
 router.get('/search' , ctrlbooking.busSearch); 
 router.post('/booking', jwtHelper.verifyJwtToken,  ctrlbooking.booking);  
