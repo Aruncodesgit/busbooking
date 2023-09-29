@@ -4,7 +4,7 @@ var helpSchema = new mongoose.Schema({
      
 });
  
-mongoose.model('Help', helpSchema); 
+mongoose.model('Helps', helpSchema); 
 
 
   
