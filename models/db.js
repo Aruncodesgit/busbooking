@@ -16,4 +16,5 @@ require('./user.model');
 require('./feedback.model'); 
 require('./places.model'); 
 require('./coupons.model');
-require('./bus.model');  
+require('./bus.model');
+require('./help.model');   

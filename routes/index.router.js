@@ -9,6 +9,7 @@ const ctrlbus = require('../controllers/bus.controller');
 const ctrlbooking = require('../controllers/booking.controller');  
 const ctrlCoupons =   require('../controllers/coupons.controller'); 
 const ctrlfeedback =   require('../controllers/feedback.controller'); 
+const ctrlhelp =   require('../controllers/help.controller'); 
 
 router.post('/register', ctrlUser.register);  
 router.get('/userDetails', ctrlUser.userDetails); 
@@ -26,6 +27,8 @@ router.get('/searchBus' , ctrlbus.busSearch);
 router.get('/placesDetails' , ctrlbus.placesDetails); 
 
 router.get('/couponsDetails' , ctrlCoupons.couponsDetails); 
+
+router.get('/helpDetails' ,  ctrlhelp.helpDetails); 
 
  
 router.get('/search' , ctrlbooking.busSearch); 
