@@ -45,19 +45,19 @@ module.exports.booking = (req, res, next) => {
     booking.user_id = req._id;
 
     var travellers = booking.travellerDetails[0]?.passengerDetails?.traveller
-    const table = document.getElementById('root');
-    travellers.forEach(squad => {
-        squad.forEach(hero => {
-          const tr = document.createElement("tr")
-          const nameTd = document.createElement("td")
-          nameTd.append(hero.name)
+    // const table = document.getElementById('root');
+    // travellers.forEach(squad => {
+    //     squad.forEach(hero => {
+    //       const tr = document.createElement("tr")
+    //       const nameTd = document.createElement("td")
+    //       nameTd.append(hero.name)
           
           
-          tr.append(nameTd) 
+    //       tr.append(nameTd) 
           
-          table.append(tr)
-        })
-      })
+    //       table.append(tr)
+    //     })
+    //   })
 
     var pickup = booking.travellerDetails[0]?.passengerDetails?.pickupPoint  
     var pricePerHead = booking.busFare[0]?.pricePerHead
