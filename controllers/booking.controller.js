@@ -61,12 +61,12 @@ module.exports.booking = (req, res, next) => {
                 </tr>
                 <tr>
                     <td align="left" colspan="2" style="font-size: 20px; padding:10px 30px;">
-                        Your booking is confirmed on 
+                        Your booking is confirmed on ` + booking.bookedDate + `
                     </td>
                 </tr>
                 <tr>
                     <td align="left" colspan="2" style="font-size:14px; padding:0px 30px;"> 
-                        Booking ID # 
+                        Booking ID # ` + booking.bookingID + `
                     </td>
                 </tr>
                 <tr>
@@ -79,10 +79,10 @@ module.exports.booking = (req, res, next) => {
                                 <td>Departure Time</td>
                             </tr>
                             <tr>
-                                <td>` + busFrom + `</td>
-                                <td>` + busTo + `</td>
-                                <td>` + bookedDate + `</td>
-                                <td>` + busTimeFrom + `</td>
+                                <td>` + booking.busFrom + `</td>
+                                <td>` + booking.busTo + `</td>
+                                <td>` + booking.bookedDate + `</td>
+                                <td>` + booking.busTimeFrom + `</td>
                             </tr> 
                             <tr>
                                 <td align="left"  style="padding:10px 30px;"> 
@@ -96,10 +96,10 @@ module.exports.booking = (req, res, next) => {
                                 <td>Seat Type</td> 
                             </tr>
                             <tr>
-                                <td>` + busTimeTo + `</td>
-                                <td>` + busTravelTime + `</td>
-                                <td>` + totalSeat + `</td> 
-                                <td>` + seatType + `</td>
+                                <td>` + booking.busTimeTo + `</td>
+                                <td>` + booking.busTravelTime + `</td>
+                                <td>` + booking.totalSeat + `</td> 
+                                <td>` + booking.seatType + `</td>
 
                             </tr>
                         </table>
@@ -112,7 +112,7 @@ module.exports.booking = (req, res, next) => {
                                 <td>Pick Up Point</td> 
                             </tr>
                             <tr>
-                                <td>` + pickup + `</td> 
+                                <td>` + booking.pickup + `</td> 
                             </tr> 
                         </table>
                     </td>
