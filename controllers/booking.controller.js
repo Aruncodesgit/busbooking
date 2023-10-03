@@ -61,12 +61,12 @@ module.exports.booking = (req, res, next) => {
                 </tr>
                 <tr>
                     <td align="left" colspan="2" style="font-size: 20px; padding:10px 30px;">
-                        Your booking is confirmed on ` + bookedDate + `
+                        Your booking is confirmed on 
                     </td>
                 </tr>
                 <tr>
                     <td align="left" colspan="2" style="font-size:14px; padding:0px 30px;"> 
-                        Booking ID # ` + bookingID + `
+                        Booking ID # 
                     </td>
                 </tr>
                 <tr>
