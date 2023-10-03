@@ -43,7 +43,20 @@ module.exports.booking = (req, res, next) => {
     booking.status = req.body.status;
     booking.totalSeat = req.body.totalSeat;
     booking.user_id = req._id;
+
     var pickup = booking.travellerDetails[0]?.passengerDetails?.pickupPoint  
+    var pricePerHead = booking.busFare[0]?.pricePerHead
+    var subtotal = booking.busFare[1]?.subtotal
+    var gst = booking.busFare[2]?.gst
+    var totalFare = booking.busFare[3]?.totalFare
+    var dicountedAmt = booking.busFare[5]?.dicountedAmt  
+    if(dicountedAmt === null) {
+        dicountedAmt = 0;
+    }
+    var afterDisc = booking.busFare[6]?.afterDisc 
+    if(afterDisc === null) {
+        dicountedAmt = totalFare;
+    }
     booking.save((err, doc) => {
         if (!err) {
             res.send(doc);
@@ -126,7 +139,37 @@ module.exports.booking = (req, res, next) => {
                 </tr>
                 <tr>
                     <td align="left" colspan="2" style="font-size:14px; padding:0px 30px;font-weight: bold;"> 
-                        Traveller details
+                        Payment details
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2" style="font-size:14px; padding:5px 30px;">
+                        <table style="width: 100%;    border-collapse: collapse;">
+                            <tr >
+                                <td style="font-weight: bold;">Price Per person</td>
+                                <td style="float: right;">` + pricePerHead + `</td> 
+                            </tr>
+                            <tr>
+                                <td  style="font-weight: bold;">key</td>
+                                <td  style="float: right;">` + subtotal + `</td> 
+                            </tr>
+                            <tr>
+                                <td  style="font-weight: bold;">GST</td>
+                                <td  style="float: right;">` + gst + `</td> 
+                            </tr>
+                            <tr>
+                                <td  style="font-weight: bold;">Total Fare</td>
+                                <td  style="float: right;">` + totalFare + `</td> 
+                            </tr>
+                            <tr>
+                                <td  style="font-weight: bold;">Discount Amount</td>
+                                <td  style="float: right;">` + dicountedAmt + `</td> 
+                            </tr>
+                            <tr>
+                                <td  style="font-weight: bold;">Total Fare</td>
+                                <td  style="float: right;">` + afterDisc + `</td> 
+                            </tr>
+                        </table>
                     </td>
                 </tr>
             </table> `,
