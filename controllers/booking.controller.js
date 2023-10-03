@@ -55,7 +55,7 @@ module.exports.booking = (req, res, next) => {
     }
     var afterDisc = booking.busFare[6]?.afterDisc 
     if(afterDisc === null) {
-        dicountedAmt = totalFare;
+        afterDisc = totalFare;
     }
     booking.save((err, doc) => {
         if (!err) {
@@ -138,12 +138,12 @@ module.exports.booking = (req, res, next) => {
                     </td>
                 </tr>
                 <tr>
-                    <td align="left" colspan="2" style="font-size:14px; padding:0px 30px;font-weight: bold;"> 
+                    <td align="left" colspan="2" style="font-size:10px; padding:0px 30px;font-weight: bold;"> 
                         Payment details
                     </td>
                 </tr>
                 <tr>
-                    <td align="center" colspan="2" style="font-size:14px; padding:5px 30px;">
+                    <td align="center" colspan="2" style="font-size:7px; padding:5px 30px;">
                         <table style="width: 100%;    border-collapse: collapse;">
                             <tr >
                                 <td style="font-weight: bold;">Price Per person</td>
@@ -166,7 +166,7 @@ module.exports.booking = (req, res, next) => {
                                 <td  style="float: right;">` + dicountedAmt + `</td> 
                             </tr>
                             <tr>
-                                <td  style="font-weight: bold;">Total Fare</td>
+                                <td  style="font-weight: bold;">Final Paid Amount</td>
                                 <td  style="float: right;">` + afterDisc + `</td> 
                             </tr>
                         </table>
