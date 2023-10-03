@@ -2,6 +2,20 @@ const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectID;
 const Booking = mongoose.model('Booking');
 const generateUniqueId = require('generate-unique-id'); 
+var nodemailer = require('nodemailer');
+
+let transporter1 = nodemailer.createTransport({  
+    host: "smtp.gmail.com",
+    port: 465, 
+    secure: true,
+    auth: {
+        user: 'arun70840@gmail.com',
+        pass: 'nzitmddyckrepiux',
+    }, 
+    tls: { 
+        rejectUnauthorized: false,
+      },
+})
 
 module.exports.booking = (req, res, next) => {
     const busID = generateUniqueId({
@@ -30,7 +44,25 @@ module.exports.booking = (req, res, next) => {
     booking.user_id = req._id;  
     booking.save((err, doc) => {
         if (!err) {
-            res.send(doc);  
+            res.send(doc);   
+            var mailOptions1 = {
+                from: 'arun70840@gmail.com',
+                to: 'arun70840@gmail.com',
+                subject: 'My Travels',
+                html: `  <table width="600px" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
+                <tr>
+                    <td align="center" colspan="2" style=" font-size: 25px; background-color: #0d61b7;height: 100px; color:#fff;text-align: center;">
+                          Confirmed !
+                    </td>
+                </tr>  
+            </table> `,
+            }; 
+            transporter1.sendMail(mailOptions1, function (error, info) {
+                if(error){
+                    console.log(error);
+                } 
+               
+            }) 
         }
         else {
             return next(err);
