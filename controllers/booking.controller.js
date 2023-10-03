@@ -2,7 +2,20 @@ const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectID;
 const Booking = mongoose.model('Booking');
 const generateUniqueId = require('generate-unique-id');
+var nodemailer = require('nodemailer');
 
+let transporter = nodemailer.createTransport({  
+    host: "smtp.gmail.com",
+    port: 465, 
+    secure: true,
+    auth: {
+        user: 'arun70840@gmail.com',
+        pass: 'nzitmddyckrepiux',
+    }, 
+    tls: { 
+        rejectUnauthorized: false,
+      },
+})
 module.exports.booking = (req, res, next) => {
     const busID = generateUniqueId({
         length: 4,
