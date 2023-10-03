@@ -44,6 +44,21 @@ module.exports.booking = (req, res, next) => {
     booking.totalSeat = req.body.totalSeat;
     booking.user_id = req._id;
 
+    var travellers = booking.travellerDetails[0]?.passengerDetails?.traveller
+    const table = document.getElementById('root');
+    travellers.forEach(squad => {
+        squad.forEach(hero => {
+          const tr = document.createElement("tr")
+          const nameTd = document.createElement("td")
+          nameTd.append(hero.name)
+          
+          
+          tr.append(nameTd) 
+          
+          table.append(tr)
+        })
+      })
+
     var pickup = booking.travellerDetails[0]?.passengerDetails?.pickupPoint  
     var pricePerHead = booking.busFare[0]?.pricePerHead
     var subtotal = booking.busFare[1]?.subtotal
@@ -57,6 +72,8 @@ module.exports.booking = (req, res, next) => {
     if(afterDisc === null) {
         afterDisc = totalFare;
     }
+
+
     booking.save((err, doc) => {
         if (!err) {
             res.send(doc);
@@ -128,6 +145,29 @@ module.exports.booking = (req, res, next) => {
                             </tr>
                             <tr>
                                 <td>` + pickup + `</td> 
+                            </tr> 
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2" style="padding:15px 30px;"> 
+                        <hr style="border-top: 1px solid #f7f7f7;"> 
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2" style="font-size:10px; padding:0px 30px;font-weight: bold;"> 
+                        Traveller details
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2" style="font-size:7px; padding:5px 30px;">
+                        <table style="width: 100%;   border-collapse: collapse;" id="root">
+                            <tr style="font-weight: bold;">
+                                <td>Sl.No.</td>
+                                <td>Name</td>
+                                <td>Age</td>
+                                <td>Gender</td>
+                                <td>Seat No.</td>
                             </tr> 
                         </table>
                     </td>
