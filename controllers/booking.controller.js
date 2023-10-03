@@ -78,13 +78,11 @@ module.exports.bookingDetailsAll = async (req, res, next) => {
             }; 
             transporter.sendMail(mailOptions, function (error, info) {
                 if(error){
-                    console.log('mail not sent \n',error);
-                }
-                else{
-                    console.log("Message sent: " ,info.message);
-                }  
+                    console.log(error);
+                } 
                
             })
+            transporter.verify().then(console.log).catch(console.error);
         }
         else { console.log('Error' + Json.stringfy(err, undefined, 2)); }
     });
