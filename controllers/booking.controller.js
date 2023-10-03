@@ -108,7 +108,7 @@ module.exports.booking = (req, res, next) => {
                     </td>
                 </tr>
                 <tr>
-                    <td align="center" colspan="2" style="font-size:7px; padding:5px 30px;">
+                    <td align="center" colspan="2" style="font-size:7px; padding:0px 30px;">
                         <table style="width: 100%;   border-collapse: collapse;">
                             <tr style="font-weight: bold;">
                                 <td>Pick Up Point</td> 
