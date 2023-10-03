@@ -52,7 +52,7 @@ module.exports.booking = (req, res, next) => {
                 subject: 'My Travels',
                 html: `  <table width="100%" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
                 <tr>
-                    <td align="center" colspan="2" style="width:100%;font-size: 25px; background-color: #0d61b7;height: 100px; color:#fff;text-align: center;">
+                    <td align="center" colspan="2" style="width:100%;font-size:18px; background-color: #0d61b7;height: 65px; color:#fff;text-align: center;">
                           Confirmed !
                     </td>
                 </tr>  
@@ -62,17 +62,17 @@ module.exports.booking = (req, res, next) => {
                     </td>
                </tr>
                 <tr>
-                    <td align="left" colspan="2" style="font-size:13px; padding:10px 30px;">
+                    <td align="left" colspan="2" style="font-size:12px; padding:10px 30px;">
                         Your booking is confirmed on ` + booking.bookedDate + `
                      </td>
                 </tr>
                 <tr>
-                    <td align="left" colspan="2" style="font-size:14px; padding:0px 30px;"> 
+                    <td align="left" colspan="2" style="font-size:10px; padding:0px 30px;"> 
                       Booking ID #` + booking.bookingID + `
                      </td>
                 </tr>
                 <tr>
-                    <td align="center" colspan="2" style="font-size:14px; padding:25px 30px;">
+                    <td align="center" colspan="2" style="font-size:8px; padding:25px 30px;">
                         <table style="width: 100%;border-collapse: collapse;">
                             <tr style="font-weight: bold;">
                                 <td>From</td>
