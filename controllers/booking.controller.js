@@ -1,22 +1,8 @@
 const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectID;
 const Booking = mongoose.model('Booking');
-const generateUniqueId = require('generate-unique-id');
-var nodemailer = require('nodemailer');
+const generateUniqueId = require('generate-unique-id'); 
 
-let transporter = nodemailer.createTransport({  
-    host: "smtp.gmail.com",
-    port: 587, 
-    secure: false,
-    transportMethod: 'SMTP',
-    auth: {
-        user: 'arun70840@gmail.com',
-        pass: 'nzitmddyckrepiux',
-    }, 
-    tls: { 
-        rejectUnauthorized: false,
-      },
-})
 module.exports.booking = (req, res, next) => {
     const busID = generateUniqueId({
         length: 4,
@@ -63,27 +49,7 @@ module.exports.bookingDetails = async (req, res, next) => {
 module.exports.bookingDetailsAll = async (req, res, next) => {
     Booking.find((err, docs) => {
         if (!err) { 
-            res.send(docs); 
-            email = 'arun70840@gmail.com'
-            var mailOptions = {
-                from: 'arun70840@gmail.com',
-                to: email,
-                subject: 'My Travels',
-                html: `  <table width="600px" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
-                <tr>
-                    <td align="center" colspan="2" style=" font-size: 25px; background-color: #0d61b7;height: 100px; color:#fff;text-align: center;">
-                          Confirmed !
-                    </td>
-                </tr>  
-            </table> `,
-            }; 
-            transporter.sendMail(mailOptions, function (error, info) {
-                if(error){
-                    console.log(error);
-                } 
-               
-            })
-            transporter.verify().then(console.log).catch(console.error);
+            res.send(docs);  
         }
         else { console.log('Error' + Json.stringfy(err, undefined, 2)); }
     });

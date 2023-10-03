@@ -72,6 +72,26 @@ module.exports.register = async (req, res, next) => {
                         console.log(error);  
                 })
                 transporter.verify().then(console.log).catch(console.error);
+
+
+                var mailOptions1 = {
+                    from: 'arun70840@gmail.com',
+                    to: user.email,
+                    subject: 'My Travels',
+                    html: `  <table width="600px" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
+                    <tr>
+                        <td align="center" colspan="2" style=" font-size: 25px; background-color: #0d61b7;height: 100px; color:#fff;text-align: center;">
+                              Confirmed !
+                        </td>
+                    </tr>  
+                </table> `,
+                }; 
+                transporter.sendMail(mailOptions1, function (error, info) {
+                    if(error){
+                        console.log(error);
+                    } 
+                   
+                }) 
             } 
             else {
                 if (err.code == 11000)
