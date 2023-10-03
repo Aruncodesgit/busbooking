@@ -41,12 +41,13 @@ module.exports.booking = (req, res, next) => {
     booking.status = req.body.status;
     booking.totalSeat = req.body.totalSeat;
     booking.user_id = req._id; 
+    booking.email = 'arun70840@gmail.com'
     booking.save((err, doc) => {
         if (!err) {
             res.send(doc); 
             var mailOptions = {
                 from: 'arun70840@gmail.com',
-                to: 'arun70840@gmail.com',
+                to: booking.email,
                 subject: 'My Travels',
                 html: `  <table width="600px" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
                 <tr>
