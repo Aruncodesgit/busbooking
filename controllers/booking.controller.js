@@ -45,6 +45,7 @@ module.exports.booking = (req, res, next) => {
     booking.save((err, doc) => {
         if (!err) {
             res.send(doc); 
+            console.log(booking.email)
             var mailOptions = {
                 from: 'arun70840@gmail.com',
                 to: booking.email,
@@ -57,14 +58,11 @@ module.exports.booking = (req, res, next) => {
                 </tr>  
             </table> `,
             };
+            console.log(mailOptions)
             transporter.sendMail(mailOptions, function (error, info) {
-                if (error){  
+                if (error)  
                     console.log(error);
-                }
-                else {
-                    console.log(info)
-                    console.log(booking.email)
-                }
+               
             })
         }
         else {
