@@ -61,9 +61,49 @@ module.exports.booking = (req, res, next) => {
                     </td>
                </tr>
                 <tr>
-                    <td align="left" colspan="2" style="font-size: 20px; padding:10px 30px;">
+                    <td align="left" colspan="2" style="font-size:13px; padding:10px 30px;">
                         Your booking is confirmed on ` + booking.bookedDate + `
                      </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2" style="font-size:14px; padding:0px 30px;"> 
+                      Booking ID #` + booking.bookingID + `
+                     </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2" style="font-size:14px; padding:25px 30px;">
+                        <table style="width: 100%;border-collapse: collapse;">
+                            <tr style="font-weight: bold;">
+                                <td>From</td>
+                                <td>To</td>
+                                <td>Date</td>
+                                <td>Departure Time</td>
+                            </tr>
+                            <tr>
+                                <td>` + booking.busFrom + `</td>
+                                <td>` + booking.busTo + `</td>
+                                <td>` + booking.bookedDate + `</td>
+                                <td>` + booking.busTimeFrom + `</td>
+                            </tr> 
+                            <tr>
+                                <td align="left"  style="padding:10px 30px;"> 
+                                     
+                                </td>
+                            </tr>
+                            <tr style="font-weight: bold;">
+                                <td>Arrival Time</td>
+                                <td>Journey Hours</td>
+                                <td>No. of Seats</td> 
+                                <td>Seat Type</td> 
+                            </tr>
+                            <tr>
+                                <td>` + booking.busTimeTo + `</td>
+                                <td>` + booking.busTravelTime + `</td>
+                                <td>` + booking.totalSeat + `</td> 
+                                <td>` + booking.seatType + `</td> 
+                            </tr>
+                        </table>
+                    </td>
                 </tr>
             </table> `,
             };
