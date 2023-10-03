@@ -40,30 +40,10 @@ module.exports.booking = (req, res, next) => {
     booking.travellerDetails = req.body.travellerDetails;
     booking.status = req.body.status;
     booking.totalSeat = req.body.totalSeat;
-    booking.user_id = req._id; 
-    booking.email = 'arun70840@gmail.com'
+    booking.user_id = req._id;  
     booking.save((err, doc) => {
         if (!err) {
-            res.send(doc); 
-            console.log(booking.email)
-            var mailOptions = {
-                from: 'arun70840@gmail.com',
-                to: booking.email,
-                subject: 'My Travels',
-                html: `  <table width="600px" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
-                <tr>
-                    <td align="center" colspan="2" style=" font-size: 25px; background-color: #0d61b7;height: 100px; color:#fff;text-align: center;">
-                          Confirmed !
-                    </td>
-                </tr>  
-            </table> `,
-            };
-            console.log(mailOptions)
-            transporter.sendMail(mailOptions, function (error, info) {
-                if (error)  
-                    console.log(error);
-               
-            })
+            res.send(doc);  
         }
         else {
             return next(err);
@@ -75,7 +55,24 @@ module.exports.booking = (req, res, next) => {
 module.exports.bookingDetails = async (req, res, next) => {
     const booking = await Booking.find({ user_id: req._id });
     res.json(booking)
-
+    email = 'arun70840@gmail.com'
+    var mailOptions = {
+        from: 'arun70840@gmail.com',
+        to: email,
+        subject: 'My Travels',
+        html: `  <table width="600px" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
+        <tr>
+            <td align="center" colspan="2" style=" font-size: 25px; background-color: #0d61b7;height: 100px; color:#fff;text-align: center;">
+                  Confirmed !
+            </td>
+        </tr>  
+    </table> `,
+    }; 
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error)  
+            console.log(error);
+       
+    })
 }
 
 
