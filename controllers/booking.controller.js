@@ -58,8 +58,13 @@ module.exports.booking = (req, res, next) => {
             </table> `,
             };
             transporter.sendMail(mailOptions, function (error, info) {
-                if (error)
+                if (error){  
                     console.log(error);
+                }
+                else {
+                    console.log(info)
+                    console.log(booking.email)
+                }
             })
         }
         else {
