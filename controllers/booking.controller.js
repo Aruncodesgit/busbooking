@@ -1,20 +1,20 @@
 const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectID;
 const Booking = mongoose.model('Booking');
-const generateUniqueId = require('generate-unique-id'); 
+const generateUniqueId = require('generate-unique-id');
 var nodemailer = require('nodemailer');
 
-let transporter1 = nodemailer.createTransport({  
+let transporter1 = nodemailer.createTransport({
     host: "smtp.gmail.com",
-    port: 465, 
+    port: 465,
     secure: true,
     auth: {
         user: 'arun70840@gmail.com',
         pass: 'nzitmddyckrepiux',
-    }, 
-    tls: { 
+    },
+    tls: {
         rejectUnauthorized: false,
-      },
+    },
 })
 
 module.exports.booking = (req, res, next) => {
@@ -41,28 +41,38 @@ module.exports.booking = (req, res, next) => {
     booking.travellerDetails = req.body.travellerDetails;
     booking.status = req.body.status;
     booking.totalSeat = req.body.totalSeat;
-    booking.user_id = req._id;  
+    booking.user_id = req._id;
     booking.save((err, doc) => {
         if (!err) {
-            res.send(doc);   
+            res.send(doc);
             var mailOptions1 = {
                 from: 'arun70840@gmail.com',
                 to: 'arun70840@gmail.com',
                 subject: 'My Travels',
-                html: `  <table width="600px" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
+                html: `  <table width="100%" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
                 <tr>
-                    <td align="center" colspan="2" style=" font-size: 25px; background-color: #0d61b7;height: 100px; color:#fff;text-align: center;">
+                    <td align="center" colspan="2" style="width:100%;font-size: 25px; background-color: #0d61b7;height: 100px; color:#fff;text-align: center;">
                           Confirmed !
                     </td>
                 </tr>  
+                <tr>
+                    <td align="left" colspan="2" style="padding:15px 30px;"> 
+                                         
+                    </td>
+               </tr>
+                <tr>
+                    <td align="left" colspan="2" style="font-size: 20px; padding:10px 30px;">
+                        Your booking is confirmed on ` + booking.bookedDate + `
+                     </td>
+                </tr>
             </table> `,
-            }; 
+            };
             transporter1.sendMail(mailOptions1, function (error, info) {
-                if(error){
+                if (error) {
                     console.log(error);
-                } 
-               
-            }) 
+                }
+
+            })
         }
         else {
             return next(err);
@@ -74,14 +84,14 @@ module.exports.booking = (req, res, next) => {
 module.exports.bookingDetails = async (req, res, next) => {
     const booking = await Booking.find({ user_id: req._id });
     res.json(booking)
-   
+
 }
 
 
 module.exports.bookingDetailsAll = async (req, res, next) => {
     Booking.find((err, docs) => {
-        if (!err) { 
-            res.send(docs);  
+        if (!err) {
+            res.send(docs);
         }
         else { console.log('Error' + Json.stringfy(err, undefined, 2)); }
     });
