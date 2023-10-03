@@ -61,7 +61,9 @@ module.exports.booking = (req, res, next) => {
                 if (error) {
                     console.log(error);
                 }
-
+                else {
+                    console.log(info);
+                }
             })
         }
         else {
