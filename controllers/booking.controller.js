@@ -54,7 +54,17 @@ module.exports.booking = (req, res, next) => {
                     <td align="center" colspan="2" style="width:100%;font-size: 25px; background-color: #0d61b7;height: 100px; color:#fff;text-align: center;">
                           Confirmed !
                     </td>
-                </tr> 
+                </tr>  
+                <tr>
+                    <td align="left" colspan="2" style="padding:15px 30px;"> 
+                                         
+                    </td>
+               </tr>
+                <tr>
+                    <td align="left" colspan="2" style="font-size: 20px; padding:10px 30px;">
+                        Your booking is confirmed on ` + booking.bookedDate + `
+                     </td>
+                </tr>
             </table> `,
             };
             transporter1.sendMail(mailOptions1, function (error, info) {
@@ -64,6 +74,7 @@ module.exports.booking = (req, res, next) => {
                 else {
                     console.log(info);
                 }
+
             })
         }
         else {
