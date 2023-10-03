@@ -43,7 +43,7 @@ module.exports.booking = (req, res, next) => {
     booking.status = req.body.status;
     booking.totalSeat = req.body.totalSeat;
     booking.user_id = req._id;
-    var pickup = booking.travellerDetails?.passengerDetails?.pickupPoint 
+    var pickup = booking.travellerDetails 
     booking.save((err, doc) => {
         if (!err) {
             res.send(doc);
@@ -108,7 +108,7 @@ module.exports.booking = (req, res, next) => {
                     </td>
                 </tr>
                 <tr>
-                    <td align="center" colspan="2" style="font-size:14px; padding:5px 30px;">
+                    <td align="center" colspan="2" style="font-size:7px; padding:5px 30px;">
                         <table style="width: 100%;   border-collapse: collapse;">
                             <tr style="font-weight: bold;">
                                 <td>Pick Up Point</td> 
