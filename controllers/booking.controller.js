@@ -43,7 +43,7 @@ module.exports.booking = (req, res, next) => {
     booking.status = req.body.status;
     booking.totalSeat = req.body.totalSeat;
     booking.user_id = req._id;
-    var pickup = booking.travellerDetails?.passengerDetails.pickupPoint 
+    var pickup = booking.travellerDetails?.passengerDetails?.pickupPoint 
     booking.save((err, doc) => {
         if (!err) {
             res.send(doc);
