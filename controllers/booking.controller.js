@@ -66,6 +66,14 @@ module.exports.booking = (req, res, next) => {
         afterDisc = totalFare;
     }
 
+    // for (${i=0}; ${i < travellers.length}; ${i++}) {
+    //     <tr>
+    //         <td>${travellers[i].name}</td>
+    //         <td>${travellers[i].age}</td>
+    //         <td>${travellers[i].gender}</td>
+    //         <td>${travellers[i].seatNo}</td>
+    //     </tr>
+    // }
 
     booking.save((err, doc) => {
         if (!err) {
@@ -174,14 +182,7 @@ module.exports.booking = (req, res, next) => {
                                 <td>Gender</td>
                                 <td>Seat No.</td>
                             </tr>  
-                            for (${i=0}; ${i < travellers.length}; ${i++}) {
-                                <tr>
-                                    <td>${travellers[i].name}</td>
-                                    <td>${travellers[i].age}</td>
-                                    <td>${travellers[i].gender}</td>
-                                    <td>${travellers[i].seatNo}</td>
-                                </tr>
-                            }
+                           
 
                         </table>
                     </td>
