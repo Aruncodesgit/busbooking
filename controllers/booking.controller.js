@@ -1,11 +1,14 @@
-const mongoose = require('mongoose');
-var ObjectId = require('mongodb').ObjectID;
-const app = express();
 const express = require('express');
+const ejs = require('ejs');
+const nodemailer = require('nodemailer');
+const app = express();
+
+const mongoose = require('mongoose');
+var ObjectId = require('mongodb').ObjectID; 
 const Booking = mongoose.model('Booking');
 const generateUniqueId = require('generate-unique-id');
-var nodemailer = require('nodemailer');  
-const ejs = require('ejs');
+ 
+ 
 
 app.set('view engine', 'ejs');
 app.use(express.static('views'));
