@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectID;
 const Booking = mongoose.model('Booking');
 const generateUniqueId = require('generate-unique-id');
-var nodemailer = require('nodemailer'); 
-app.use(express.static('views'));
+var nodemailer = require('nodemailer');  
 
 let transporter1 = nodemailer.createTransport({
     host: "smtp.gmail.com",
