@@ -25,8 +25,8 @@ app.use(passport.initialize());
 app.use('/api', rtsIndex);
 app.set('view engine', 'ejs')
 app.use('/uploads', express.static('uploads')); 
- 
- 
+app.use(express.static('views'));
+
 
 // error handler
 app.use((err, req, res, next) => {

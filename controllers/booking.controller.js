@@ -77,12 +77,13 @@ module.exports.booking = (req, res, next) => {
 
     booking.save((err, doc) => {
 
-        const html =   ejs.renderFile(__dirname + '/views/email.ejs', { 
-            data: travellers,
-        });
+        
 
         if (!err) {
             res.send(doc); 
+            const html =   ejs.renderFile(__dirname + '/views/email.ejs', { 
+                data: travellers,
+            });
             var mailOptions1 = {
                 from: 'arun70840@gmail.com',
                 to: 'arun70840@gmail.com',
