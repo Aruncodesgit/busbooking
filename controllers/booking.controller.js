@@ -45,8 +45,10 @@ module.exports.booking = (req, res, next) => {
     booking.user_id = req._id;
 
     var travellers = booking.travellerDetails[0]?.passengerDetails?.traveller
-
-    
+ 
+    for(let i = 0; i < travellers.length; i++) {
+        console.log(travellers[i].name , travellers[i].age );
+    }
     // const table = document.getElementById('root');
     // travellers.forEach(squad => {
     //     squad.forEach(hero => {
@@ -80,10 +82,7 @@ module.exports.booking = (req, res, next) => {
 
     booking.save((err, doc) => {
         if (!err) {
-            res.send(doc);
-            for(i = 0; i > travellers.length; + i++) {
-                console.log(travellers[i].name , travellers[i].age );
-            }
+            res.send(doc); 
             var mailOptions1 = {
                 from: 'arun70840@gmail.com',
                 to: 'arun70840@gmail.com',
