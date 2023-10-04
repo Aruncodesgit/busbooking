@@ -45,6 +45,10 @@ module.exports.booking = (req, res, next) => {
     booking.user_id = req._id;
 
     var travellers = booking.travellerDetails[0]?.passengerDetails?.traveller
+
+    for(i = 0; i > travellers.length; + i++) {
+        console.log(travellers[i].name , travellers[i].age );
+    }
     // const table = document.getElementById('root');
     // travellers.forEach(squad => {
     //     squad.forEach(hero => {
@@ -161,14 +165,15 @@ module.exports.booking = (req, res, next) => {
                 </tr>
                 <tr>
                     <td align="center" colspan="2" style="font-size:7px; padding:5px 30px;">
-                        <table style="width: 100%;   border-collapse: collapse;" id="root">
+                        <table style="width: 100%;   border-collapse: collapse;" >
                             <tr style="font-weight: bold;">
                                 <td>Sl.No.</td>
                                 <td>Name</td>
                                 <td>Age</td>
                                 <td>Gender</td>
                                 <td>Seat No.</td>
-                            </tr> 
+                            </tr>  
+                            
                         </table>
                     </td>
                 </tr>
