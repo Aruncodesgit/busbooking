@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectID;
 const app = express();
+const express = require('express');
 const Booking = mongoose.model('Booking');
 const generateUniqueId = require('generate-unique-id');
 var nodemailer = require('nodemailer');  
