@@ -48,20 +48,7 @@ module.exports.booking = (req, res, next) => {
  
     for(let i = 0; i < travellers.length; i++) {
         console.log(travellers[i].name , travellers[i].age );
-    }
-    // const table = document.getElementById('root');
-    // travellers.forEach(squad => {
-    //     squad.forEach(hero => {
-    //       const tr = document.createElement("tr")
-    //       const nameTd = document.createElement("td")
-    //       nameTd.append(hero.name)
-          
-          
-    //       tr.append(nameTd) 
-          
-    //       table.append(tr)
-    //     })
-    //   })
+    } 
 
     var pickup = booking.travellerDetails[0]?.passengerDetails?.pickupPoint  
     var pricePerHead = booking.busFare[0]?.pricePerHead
@@ -87,7 +74,9 @@ module.exports.booking = (req, res, next) => {
                 from: 'arun70840@gmail.com',
                 to: 'arun70840@gmail.com',
                 subject: 'My Travels',
-                html: `  <table width="100%" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
+                html:  
+                
+                `  <table  width="100%" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
                 <tr>
                     <td align="center" colspan="2" style="width:100%;font-size:18px; background-color: #0d61b7;height: 65px; color:#fff;text-align: center;">
                           Confirmed !
@@ -98,6 +87,16 @@ module.exports.booking = (req, res, next) => {
                                          
                     </td>
                </tr>
+               <tr>
+                    <td align="left" colspan="2" style="font-size:10px; padding:20px 30px 0px 30px;font-weight: bold;"> 
+                        Reservation Details
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2" style="padding:10px 30px;"> 
+                        <hr style="border-top: 1px solid #f7f7f7;"> 
+                    </td>
+                </tr>
                 <tr>
                     <td align="left" colspan="2" style="font-size:12px; padding:10px 30px;">
                         Your booking is confirmed on ` + booking.bookedDate + `
@@ -154,20 +153,20 @@ module.exports.booking = (req, res, next) => {
                             </tr> 
                         </table>
                     </td>
-                </tr>
+                </tr> 
                 <tr>
-                    <td align="left" colspan="2" style="padding:15px 30px;"> 
-                        <hr style="border-top: 1px solid #f7f7f7;"> 
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left" colspan="2" style="font-size:10px; padding:0px 30px;font-weight: bold;"> 
+                    <td align="left" colspan="2" style="font-size:10px; padding:20px 30px 0px 30px;font-weight: bold;"> 
                         Traveller details
                     </td>
                 </tr>
                 <tr>
+                    <td align="left" colspan="2" style="padding:10px 30px;"> 
+                        <hr style="border-top: 1px solid #f7f7f7;"> 
+                    </td>
+                </tr>
+                <tr>
                     <td align="center" colspan="2" style="font-size:7px; padding:5px 30px;">
-                        <table style="width: 100%;   border-collapse: collapse;" >
+                        <table style="width: 100%;   border-collapse: collapse;"   >
                             <tr style="font-weight: bold;">
                                 <td>Sl.No.</td>
                                 <td>Name</td>
@@ -175,18 +174,26 @@ module.exports.booking = (req, res, next) => {
                                 <td>Gender</td>
                                 <td>Seat No.</td>
                             </tr>  
-                            
+                            for (i=0; i<= ${travellers.length}; i++) {
+                                <tr>
+                                    <td>${travellers[i].name}</td>
+                                    <td>${travellers[i].age}</td>
+                                    <td>${travellers[i].gender}</td>
+                                    <td>${travellers[i].seatNo}</td>
+                                </tr>
+                            }
+
                         </table>
                     </td>
-                </tr>
+                </tr> 
                 <tr>
-                    <td align="left" colspan="2" style="padding:15px 30px;"> 
-                        <hr style="border-top: 1px solid #f7f7f7;"> 
+                    <td align="left" colspan="2" style="font-size:10px; padding:20px 30px 0px 30px;font-weight: bold;"> 
+                        Fare details
                     </td>
                 </tr>
                 <tr>
-                    <td align="left" colspan="2" style="font-size:10px; padding:0px 30px;font-weight: bold;"> 
-                        Payment details
+                    <td align="left" colspan="2" style="padding:10px 30px;"> 
+                        <hr style="border-top: 1px solid #f7f7f7;"> 
                     </td>
                 </tr>
                 <tr>
