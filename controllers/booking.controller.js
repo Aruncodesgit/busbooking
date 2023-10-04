@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectID;
 const Booking = mongoose.model('Booking');
 const generateUniqueId = require('generate-unique-id');
-var nodemailer = require('nodemailer');
+var nodemailer = require('nodemailer'); 
+app.use(express.static('views'));
 
 let transporter1 = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -76,13 +77,18 @@ module.exports.booking = (req, res, next) => {
     // }
 
     booking.save((err, doc) => {
+
+        const html =   ejs.renderFile(__dirname + '/views/email.ejs', { 
+            data: travellers,
+        });
+
         if (!err) {
             res.send(doc); 
             var mailOptions1 = {
                 from: 'arun70840@gmail.com',
                 to: 'arun70840@gmail.com',
                 subject: 'My Travels',
-                html:  
+                html:   html
                 
                 `  <table  width="100%" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
                 <tr>
@@ -182,8 +188,6 @@ module.exports.booking = (req, res, next) => {
                                 <td>Gender</td>
                                 <td>Seat No.</td>
                             </tr>  
-                           
-
                         </table>
                     </td>
                 </tr> 
