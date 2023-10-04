@@ -66,7 +66,9 @@ module.exports.booking = (req, res, next) => {
     var subtotal = booking.busFare[1]?.subtotal
     var gst = booking.busFare[2]?.gst
     var totalFare = booking.busFare[3]?.totalFare
+    console.log(totalFare)
     var dicountedAmt = booking.busFare[5]?.dicountedAmt  
+   
     if(dicountedAmt === null) {
         dicountedAmt = 0;
     }
