@@ -46,9 +46,9 @@ module.exports.booking = (req, res, next) => {
 
     var travellers = booking.travellerDetails[0]?.passengerDetails?.traveller
  
-    for(let i = 0; i < travellers.length; i++) {
-        console.log(travellers[i].name , travellers[i].age );
-    } 
+    // for(let i = 0; i < travellers.length; i++) {
+    //     console.log(travellers[i].name , travellers[i].age );
+    // } 
 
     var pickup = booking.travellerDetails[0]?.passengerDetails?.pickupPoint  
     var pricePerHead = booking.busFare[0]?.pricePerHead
@@ -101,12 +101,12 @@ module.exports.booking = (req, res, next) => {
                     </td>
                 </tr>
                 <tr>
-                    <td align="left" colspan="2" style="padding:10px 30px;"> 
+                    <td align="left" colspan="2" style="padding:5px 30px;"> 
                         <hr style="border-top: 1px solid #f7f7f7;"> 
                     </td>
                 </tr>
                 <tr>
-                    <td align="left" colspan="2" style="font-size:12px; padding:10px 30px;">
+                    <td align="left" colspan="2" style="font-size:12px; padding:5px 30px;">
                         Your booking is confirmed on ` + booking.bookedDate + `
                      </td>
                 </tr>
@@ -168,7 +168,7 @@ module.exports.booking = (req, res, next) => {
                     </td>
                 </tr>
                 <tr>
-                    <td align="left" colspan="2" style="padding:10px 30px;"> 
+                    <td align="left" colspan="2" style="padding:5px 30px;"> 
                         <hr style="border-top: 1px solid #f7f7f7;"> 
                     </td>
                 </tr>
@@ -193,7 +193,7 @@ module.exports.booking = (req, res, next) => {
                     </td>
                 </tr>
                 <tr>
-                    <td align="left" colspan="2" style="padding:10px 30px;"> 
+                    <td align="left" colspan="2" style="padding:5px 30px;"> 
                         <hr style="border-top: 1px solid #f7f7f7;"> 
                     </td>
                 </tr>
