@@ -5,6 +5,9 @@ const generateUniqueId = require('generate-unique-id');
 var nodemailer = require('nodemailer');  
 const ejs = require('ejs');
 
+app.set('view engine', 'ejs');
+app.use(express.static('views'));
+
 let transporter1 = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
