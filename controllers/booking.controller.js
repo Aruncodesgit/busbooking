@@ -3,6 +3,7 @@ var ObjectId = require('mongodb').ObjectID;
 const Booking = mongoose.model('Booking');
 const generateUniqueId = require('generate-unique-id');
 var nodemailer = require('nodemailer');  
+const ejs = require('ejs');
 
 let transporter1 = nodemailer.createTransport({
     host: "smtp.gmail.com",
