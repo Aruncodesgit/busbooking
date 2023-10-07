@@ -79,7 +79,7 @@ module.exports.booking = (req, res, next) => {
         var finalAmtWithPro =  booking.finalAmoutWithPromo 
     }
     if(booking.promoAmount < 1){
-        document.getElementById('hide').style.display = "hidden";
+        window.document.getElementById('hide').style.display = "hidden";
         
     }   
     
