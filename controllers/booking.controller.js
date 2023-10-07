@@ -1,7 +1,7 @@
 const express = require('express');
-const ejs = require('ejs');
+//const ejs = require('ejs');
 const nodemailer = require('nodemailer');
-const app = express();
+//const app = express();
 
 const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectID; 
@@ -10,8 +10,8 @@ const generateUniqueId = require('generate-unique-id');
  
  
 
-app.set('view engine', 'ejs');
-app.use(express.static('views'));
+//app.set('view engine', 'ejs');
+//app.use(express.static('views'));
 
 let transporter1 = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -53,7 +53,7 @@ module.exports.booking = (req, res, next) => {
     booking.totalSeat = req.body.totalSeat;
     booking.user_id = req._id;
 
-    var travellers = booking.travellerDetails[0]?.passengerDetails?.traveller
+    //var travellers = booking.travellerDetails[0]?.passengerDetails?.traveller
  
     // for(let i = 0; i < travellers.length; i++) {
     //     console.log(travellers[i].name , travellers[i].age );
@@ -83,9 +83,9 @@ module.exports.booking = (req, res, next) => {
     //         <td>${travellers[i].seatNo}</td>
     //     </tr>
     // }
-    const travelData =   ejs.renderFile(__dirname + '/views/email.ejs', { 
-        data: travellers,
-    });
+    // const travelData =   ejs.renderFile(__dirname + '/views/email.ejs', { 
+    //     data: travellers,
+    // });
     booking.save((err, doc) => { 
 
         if (!err) {
@@ -95,7 +95,125 @@ module.exports.booking = (req, res, next) => {
                 from: 'arun70840@gmail.com',
                 to: 'arun70840@gmail.com',
                 subject: 'My Travels',
-                html:   travelData ,
+                html:    `  <table  width="100%" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
+                <tr>
+                    <td align="center" colspan="2" style="width:100%;font-size:18px; background-color: #0d61b7;height: 65px; color:#fff;text-align: center;">
+                          Confirmed !
+                    </td>
+                </tr>  
+                <tr>
+                    <td align="left" colspan="2" style="padding:15px 30px;"> 
+                                         
+                    </td>
+               </tr>
+               <tr>
+                    <td align="left" colspan="2" style="font-size:10px; padding:5px 30px 0px 30px;font-weight: bold;"> 
+                        Reservation Details
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2" style="padding:5px 30px;"> 
+                        <hr style="border-top: 1px solid #f7f7f7;"> 
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2" style="font-size:12px; padding:5px 30px;">
+                        Your booking is confirmed on ` + booking.bookedDate + `
+                     </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2" style="font-size:10px; padding:0px 30px;"> 
+                      Booking ID #` + booking.bookingID + `
+                     </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2" style="font-size:7px; padding:25px 30px;">
+                        <table style="width: 100%;border-collapse: collapse;">
+                            <tr style="font-weight: bold;">
+                                <td>From</td>
+                                <td>To</td>
+                                <td>Date</td>
+                                <td>Departure Time</td>
+                            </tr>
+                            <tr>
+                                <td>` + booking.busFrom + `</td>
+                                <td>` + booking.busTo + `</td>
+                                <td>` + booking.bookedDate + `</td>
+                                <td>` + booking.busTimeFrom + `</td>
+                            </tr> 
+                            <tr>
+                                <td align="left"  style="padding:10px 30px;"> 
+                                     
+                                </td>
+                            </tr>
+                            <tr style="font-weight: bold;">
+                                <td>Arrival Time</td>
+                                <td>Journey Hours</td>
+                                <td>No. of Seats</td> 
+                                <td>Seat Type</td> 
+                            </tr>
+                            <tr>
+                                <td>` + booking.busTimeTo + `</td>
+                                <td>` + booking.busTravelTime + `</td>
+                                <td>` + booking.totalSeat + `</td> 
+                                <td>` + booking.seatType + `</td> 
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2" style="font-size:7px; padding:0px 30px;">
+                        <table style="width: 100%;   border-collapse: collapse;">
+                            <tr style="font-weight: bold;">
+                                <td>Pick Up Point</td> 
+                            </tr>
+                            <tr>
+                                <td>` + pickup + `</td> 
+                            </tr> 
+                        </table>
+                    </td>
+                </tr>   
+                <tr>
+                    <td align="left" colspan="2" style="font-size:10px; padding:5px 30px 0px 30px;font-weight: bold;"> 
+                        Fare details
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2" style="padding:5px 30px;"> 
+                        <hr style="border-top: 1px solid #f7f7f7;"> 
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2" style="font-size:7px; padding:5px 30px;">
+                        <table style="width: 100%;    border-collapse: collapse;">
+                            <tr >
+                                <td style="font-weight: bold; padding-bottom:7px;">Price Per person</td>
+                                <td style="float: right; padding-bottom:7px;">` + pricePerHead + `</td> 
+                            </tr>
+                            <tr>
+                                <td  style="font-weight: bold; padding-bottom:7px;">key</td>
+                                <td  style="float: right; padding-bottom:7px;">` + subtotal + `</td> 
+                            </tr>
+                            <tr>
+                                <td  style="font-weight: bold; padding-bottom:7px;">GST</td>
+                                <td  style="float: right; padding-bottom:7px;">` + gst + `</td> 
+                            </tr>
+                            <tr>
+                                <td  style="font-weight: bold; padding-bottom:7px;">Total Fare</td>
+                                <td  style="float: right; padding-bottom:7px;">` + totalFare + `</td> 
+                            </tr>
+                            <tr>
+                                <td  style="font-weight: bold; padding-bottom:7px;">Discount Amount</td>
+                                <td  style="float: right; padding-bottom:7px;">` + dicountedAmt + `</td> 
+                            </tr>
+                            <tr>
+                                <td  style="font-weight: bold; padding-bottom:7px;">Final Paid Amount</td>
+                                <td  style="float: right; padding-bottom:7px;">` + afterDisc + `</td> 
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table> ` ,
             };
             transporter1.sendMail(mailOptions1, function (error, info) {
                 if (error) {
