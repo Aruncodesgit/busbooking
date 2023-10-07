@@ -139,7 +139,7 @@ module.exports.booking = (req, res, next) => {
                 </tr>
                 <tr>
                     <td align="center" colspan="2" style="font-size:7px; padding:25px 30px;">
-                        <table style="width: 100%;border-collapse: collapse;">
+                        <table style="width:600px;border-collapse: collapse;">
                             <tr style="font-weight: bold;">
                                 <td>From</td>
                                 <td>To</td>
@@ -174,7 +174,7 @@ module.exports.booking = (req, res, next) => {
                 </tr>
                 <tr>
                     <td align="center" colspan="2" style="font-size:7px; padding:0px 30px;">
-                        <table style="width: 100%;   border-collapse: collapse;">
+                        <table style="width: 600px;   border-collapse: collapse;">
                             <tr style="font-weight: bold;">
                                 <td>Pick Up Point</td> 
                             </tr>
@@ -196,13 +196,13 @@ module.exports.booking = (req, res, next) => {
                 </tr>
                 <tr>
                     <td align="center" colspan="2" style="font-size:7px; padding:5px 30px;">
-                        <table style="width: 100%;    border-collapse: collapse;">
+                        <table style="width: 600px;    border-collapse: collapse;">
                             <tr >
                                 <td style="font-weight: bold; padding-bottom:7px;">Price Per person</td>
                                 <td style="float: right; padding-bottom:7px;">Rs : ` + pricePerHead + `</td> 
                             </tr>
                             <tr>
-                                <td  style="font-weight: bold; padding-bottom:7px;">key</td>
+                                <td  style="font-weight: bold; padding-bottom:7px;">Sub Total</td>
                                 <td  style="float: right; padding-bottom:7px;">Rs : ` + subtotal + `</td> 
                             </tr>
                             <tr>
