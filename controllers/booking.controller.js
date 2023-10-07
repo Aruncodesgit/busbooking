@@ -106,9 +106,9 @@ module.exports.booking = (req, res, next) => {
                 from: 'arun70840@gmail.com',
                 to: 'arun70840@gmail.com',
                 subject: 'My Travels',
-                html:    `  <table  width="600px" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
+                html:    `  <table  width="100%" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
                 <tr>
-                    <td align="center" colspan="2" style="width:600px;font-size:18px; background-color: #0d61b7;height: 65px; color:#fff;text-align: center;">
+                    <td align="center" colspan="2" style="width:100%;font-size:18px; background-color: #0d61b7;height: 65px; color:#fff;text-align: center;">
                           Confirmed !
                     </td>
                 </tr>  
@@ -139,7 +139,7 @@ module.exports.booking = (req, res, next) => {
                 </tr>
                 <tr>
                     <td align="center" colspan="2" style="font-size:7px; padding:25px 30px;">
-                        <table style="width:600px;border-collapse: collapse;">
+                        <table style="width:100%;border-collapse: collapse;">
                             <tr style="font-weight: bold;">
                                 <td>From</td>
                                 <td>To</td>
@@ -174,7 +174,7 @@ module.exports.booking = (req, res, next) => {
                 </tr>
                 <tr>
                     <td align="center" colspan="2" style="font-size:7px; padding:0px 30px;">
-                        <table style="width: 600px;   border-collapse: collapse;">
+                        <table style="width: 100%;   border-collapse: collapse;">
                             <tr style="font-weight: bold;">
                                 <td>Pick Up Point</td> 
                             </tr>
@@ -196,7 +196,7 @@ module.exports.booking = (req, res, next) => {
                 </tr>
                 <tr>
                     <td align="center" colspan="2" style="font-size:7px; padding:5px 30px;">
-                        <table style="width: 600px;    border-collapse: collapse;">
+                        <table style="width: 100%;    border-collapse: collapse;">
                             <tr >
                                 <td style="font-weight: bold; padding-bottom:7px;">Price Per person</td>
                                 <td style="float: right; padding-bottom:7px;">Rs : ` + pricePerHead + `</td> 
