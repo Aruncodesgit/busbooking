@@ -63,8 +63,7 @@ module.exports.booking = (req, res, next) => {
     var pricePerHead = booking.busFare[0]?.pricePerHead
     var subtotal = booking.busFare[1]?.subtotal
     var gst = booking.busFare[2]?.gst
-    var totalFare = booking.busFare[3]?.totalFare
-    console.log(totalFare)
+    var totalFare = booking.busFare[3]?.totalFare 
     var dicountedAmt = booking.busFare[5]?.dicountedAmt  
    
     if(dicountedAmt === null) {
@@ -74,6 +73,18 @@ module.exports.booking = (req, res, next) => {
     if(afterDisc === null) {
         afterDisc = totalFare;
     }
+
+    if(booking.promoAmount > 1){
+        var promoAmt =  booking.promoAmount 
+        var finalAmtWithPro =  booking.finalAmoutWithPromo 
+    }
+    if(booking.promoAmount < 1){
+        //var hide = document.getElementById('hide');
+        $('#hide').hide();
+    }   
+    
+   
+   
 
     // for (${i=0}; ${i < travellers.length}; ${i++}) {
     //     <tr>
@@ -107,12 +118,12 @@ module.exports.booking = (req, res, next) => {
                     </td>
                </tr>
                <tr>
-                    <td align="left" colspan="2" style="font-size:10px; padding:5px 30px 0px 30px;font-weight: bold;"> 
+                    <td align="left" colspan="2" style="font-size:10px; padding:10px 30px 0px 30px;font-weight: bold;"> 
                         Reservation Details
                     </td>
                 </tr>
                 <tr>
-                    <td align="left" colspan="2" style="padding:5px 30px;"> 
+                    <td align="left" colspan="2" style="padding:0px 30px;"> 
                         <hr style="border-top: 1px solid #f7f7f7;"> 
                     </td>
                 </tr>
@@ -174,12 +185,12 @@ module.exports.booking = (req, res, next) => {
                     </td>
                 </tr>   
                 <tr>
-                    <td align="left" colspan="2" style="font-size:10px; padding:5px 30px 0px 30px;font-weight: bold;"> 
+                    <td align="left" colspan="2" style="font-size:10px; padding:10px 30px 0px 30px;font-weight: bold;"> 
                         Fare details
                     </td>
                 </tr>
                 <tr>
-                    <td align="left" colspan="2" style="padding:5px 30px;"> 
+                    <td align="left" colspan="2" style="padding:0px 30px;"> 
                         <hr style="border-top: 1px solid #f7f7f7;"> 
                     </td>
                 </tr>
@@ -188,29 +199,37 @@ module.exports.booking = (req, res, next) => {
                         <table style="width: 100%;    border-collapse: collapse;">
                             <tr >
                                 <td style="font-weight: bold; padding-bottom:7px;">Price Per person</td>
-                                <td style="float: right; padding-bottom:7px;">` + pricePerHead + `</td> 
+                                <td style="float: right; padding-bottom:7px;">Rs : ` + pricePerHead + `</td> 
                             </tr>
                             <tr>
                                 <td  style="font-weight: bold; padding-bottom:7px;">key</td>
-                                <td  style="float: right; padding-bottom:7px;">` + subtotal + `</td> 
+                                <td  style="float: right; padding-bottom:7px;">Rs : ` + subtotal + `</td> 
                             </tr>
                             <tr>
                                 <td  style="font-weight: bold; padding-bottom:7px;">GST</td>
-                                <td  style="float: right; padding-bottom:7px;">` + gst + `</td> 
+                                <td  style="float: right; padding-bottom:7px;">Rs : ` + gst + `</td> 
                             </tr>
                             <tr>
                                 <td  style="font-weight: bold; padding-bottom:7px;">Total Fare</td>
-                                <td  style="float: right; padding-bottom:7px;">` + totalFare + `</td> 
+                                <td  style="float: right; padding-bottom:7px;">Rs : ` + totalFare + `</td> 
                             </tr>
                             <tr>
                                 <td  style="font-weight: bold; padding-bottom:7px;">Discount Amount</td>
-                                <td  style="float: right; padding-bottom:7px;">` + dicountedAmt + `</td> 
+                                <td  style="float: right; padding-bottom:7px;">Rs : ` + dicountedAmt + `</td> 
                             </tr>
                             <tr>
                                 <td  style="font-weight: bold; padding-bottom:7px;">Final Paid Amount</td>
-                                <td  style="float: right; padding-bottom:7px;">` + afterDisc + `</td> 
+                                <td  style="float: right; padding-bottom:7px;">Rs : ` + afterDisc + `</td> 
                             </tr>
-                        </table>
+                            <tr id="hide">
+                            <td  style="font-weight: bold; padding-bottom:7px;">Promo Code Discount</td>
+                                <td  style="float: right; padding-bottom:7px;">Rs : ` + promoAmt + `</td> 
+                            </tr>
+                            <tr id="hide">
+                                <td  style="font-weight: bold; padding-bottom:7px;">Final Paid Amount After Promo Code Discount</td>
+                                <td  style="float: right; padding-bottom:7px;">Rs : ` + finalAmtWithPro + `</td> 
+                            </tr>
+                        </table>  
                     </td>
                 </tr>
             </table> ` ,
