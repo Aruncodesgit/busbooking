@@ -106,9 +106,9 @@ module.exports.booking = (req, res, next) => {
                 from: 'arun70840@gmail.com',
                 to: 'arun70840@gmail.com',
                 subject: 'My Travels',
-                html:    `  <table  width="100%" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
+                html:    `  <table  width="600px" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
                 <tr>
-                    <td align="center" colspan="2" style="width:100%;font-size:18px; background-color: #0d61b7;height: 65px; color:#fff;text-align: center;">
+                    <td align="center" colspan="2" style="width:600px;font-size:18px; background-color: #0d61b7;height: 65px; color:#fff;text-align: center;">
                           Confirmed !
                     </td>
                 </tr>  
