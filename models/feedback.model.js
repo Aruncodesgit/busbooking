@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');  
 var feedbackSchema = new mongoose.Schema({   
 
-    feedback:String,
+    otpField:String,
+    uiuxField:String,
+    friendlyField:String,
+    smoothlyField:String,
+    otherField:String, 
     date:Date,
     rating:Number,
     user_id :{
