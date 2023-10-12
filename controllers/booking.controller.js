@@ -100,7 +100,8 @@ module.exports.booking = (req, res, next) => {
     //     data: travellers,
     // });
 
-    
+   
+
     booking.save((err, doc) => { 
 
         if (!err) {
@@ -109,31 +110,28 @@ module.exports.booking = (req, res, next) => {
                 title: 'some title here',
                 body: 'some long text for the body here',
                 total: 1908.50
-              }; 
-            ejs.renderFile('email.ejs', data, {}, function(err, str) {
-                if(!err) {
-                    var mailOptions1 = {
-                        from: 'arun70840@gmail.com',
-                        to: booking.user_email,
-                        subject: 'My Travels',
-                        html:  str ,
-                        // attachments: [{
-                        //     filename: 'confirmed.png',
-                        //     path: __dirname+'/confirmed.png',
-                        //     cid: 'confirm'  
-                        // }],
-                    };
-                    transporter1.sendMail(mailOptions1, function (error, info) {
-                        if (error) {
-                            console.log(error);
-                        }
-                        else {
-                            console.log(info);
-                        }
-
-                    })
+              };
+            const travelData =   ejs.renderFile(__dirname+'/email.ejs', data);
+            var mailOptions1 = {
+                from: 'arun70840@gmail.com',
+                to: booking.user_email,
+                subject: 'My Travels',
+                html: travelData ,
+                // attachments: [{
+                //     filename: 'confirmed.png',
+                //     path: __dirname+'/confirmed.png',
+                //     cid: 'confirm'  
+                // }],
+            };
+            transporter1.sendMail(mailOptions1, function (error, info) {
+                if (error) {
+                    console.log(error);
                 }
-            });
+                else {
+                    console.log(info);
+                }
+
+            })
         }
         else {
             return next(err);
