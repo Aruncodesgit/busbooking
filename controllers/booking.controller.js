@@ -89,14 +89,7 @@ module.exports.booking = (req, res, next) => {
    
     var travellers = booking.travellerDetails[0]?.passengerDetails?.traveller
 
-    for (i=0 ; i < travellers.length; i++) {
-        <tr>
-            <td>${travellers[i].name}</td>
-            <td>${travellers[i].age}</td>
-            <td>${travellers[i].gender}</td>
-            <td>${travellers[i].seatNo}</td>
-        </tr>
-    }
+     
     const travelData =   ejs.renderFile(__dirname+'/email.ejs', { 
         data: travellers,
     });
