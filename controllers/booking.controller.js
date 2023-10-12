@@ -85,6 +85,7 @@ module.exports.booking = (req, res, next) => {
         var finalAmtWithPro = totalFare;
     }
 
+    var saved = promoAmt + dicountedAmt
 
 
 
@@ -235,12 +236,15 @@ module.exports.booking = (req, res, next) => {
                     <td align="center" colspan="2" style="font-size:7px; padding:5px 30px;">
                         <table style="width: 100%;    border-collapse: collapse;">
                             <tr >
-                                <td style="font-weight: bold; padding-bottom:7px;">Price Per person</td>
+                                <td style="font-weight: bold; padding-bottom:7px;">Price Per Seat</td>
                                 <td style="float: right; padding-bottom:7px;">Rs : ` + pricePerHead + `</td> 
                             </tr>
                             <tr>
                                 <td  style="font-weight: bold; padding-bottom:7px;">Sub Total</td>
                                 <td  style="float: right; padding-bottom:7px;">Rs : ` + subtotal + `</td> 
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="padding-bottom:7px;border-top:1px dashed #e3e3e3;"></td>
                             </tr>
                             <tr>
                                 <td  style="font-weight: bold; padding-bottom:7px;">GST 5%</td>
@@ -251,17 +255,31 @@ module.exports.booking = (req, res, next) => {
                                 <td  style="float: right; padding-bottom:7px;">Rs : ` + totalFare + `</td> 
                             </tr>
                             <tr>
+                                <td colspan="2" style="padding-bottom:7px;border-top:1px dashed #e3e3e3;"></td>
+                            </tr>
+                            <tr>
                                 <td  style="font-weight: bold; padding-bottom:7px;">Booking Discount</td>
                                 <td  style="float: right; padding-bottom:7px;">Rs : ` + dicountedAmt + `</td> 
+                            </tr>
+                            <tr>
+                                <td  style="font-weight: bold; padding-bottom:7px;">Promo Code Discount</td>
+                                <td  style="float: right; padding-bottom:7px;">Rs : ` + promoAmt + `</td> 
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="padding-bottom:7px;border-top:1px dashed #e3e3e3;"></td>
+                            </tr>
+                            <tr>
+                                <td  style="font-weight: bold; padding-bottom:7px;">Saved Amount</td>
+                                <td  style="float: right; padding-bottom:7px;">Rs : ` + saved + `</td> 
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="padding-bottom:7px;border-top:1px dashed #e3e3e3;"></td>
                             </tr>
                             <tr>
                                 <td  style="font-weight: bold; padding-bottom:7px;">Final Paid Amount</td>
                                 <td  style="float: right; padding-bottom:7px;">Rs : ` + afterDisc + `</td> 
                             </tr>
-                            <tr>
-                            <td  style="font-weight: bold; padding-bottom:7px;">Promo Code Discount</td>
-                                <td  style="float: right; padding-bottom:7px;">Rs : ` + promoAmt + `</td> 
-                            </tr>
+                            
                             <tr>
                                 <td  style="font-weight: bold; padding-bottom:7px;">Final Paid Amount After Promo Code Discount</td>
                                 <td  style="float: right; padding-bottom:7px;">Rs : ` + finalAmtWithPro + `</td> 
