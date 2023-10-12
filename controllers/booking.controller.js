@@ -69,7 +69,7 @@ module.exports.booking = (req, res, next) => {
     var gst = booking.busFare[2]?.gst
     var totalFare = booking.busFare[3]?.totalFare
     var dicountedAmt = booking.busFare[5]?.dicountedAmt
-    jquery('.appendData').append(dicountedAmt);
+    jquery('table tr:nth-child(15) td table tr::nth-child(12)').append(`<td>` + dicountedAmt + `</td>`);
     if (dicountedAmt === null) {
         dicountedAmt = 0;
     }
@@ -86,10 +86,10 @@ module.exports.booking = (req, res, next) => {
         var promoAmt = 0;
         var finalAmtWithProm = totalFare;
     }
-    
+
     var saved = promoAmt + dicountedAmt
 
-    
+
 
     // for (${i=0}; ${i < travellers.length}; ${i++}) {
     //     <tr>
