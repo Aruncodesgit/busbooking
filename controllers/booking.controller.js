@@ -8,9 +8,7 @@ var ObjectId = require('mongodb').ObjectID;
 const Booking = mongoose.model('Booking');
 const generateUniqueId = require('generate-unique-id');
 
-const jsdom = require('jsdom')
-const dom = new jsdom.JSDOM("")
-const jquery = require('jquery')(dom.window)
+
 
 //app.set('view engine', 'ejs');
 //app.use(express.static('views'));
@@ -69,7 +67,7 @@ module.exports.booking = (req, res, next) => {
     var gst = booking.busFare[2]?.gst
     var totalFare = booking.busFare[3]?.totalFare
     var dicountedAmt = booking.busFare[5]?.dicountedAmt
-    
+
     if (dicountedAmt === null) {
         dicountedAmt = 0;
     }
@@ -106,11 +104,11 @@ module.exports.booking = (req, res, next) => {
 
         if (!err) {
             res.send(doc);
-            jquery('table').css( 'display', 'none');
+
             var mailOptions1 = {
                 from: 'arun70840@gmail.com',
                 to: booking.user_email,
-                subject: 'My Travels',
+                subject: 'My Travels', 
                 html: `  <table  width="100%" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
                 <tr>
                     <td align="center" colspan="2" style="width:100%;font-size:18px; background-color: #0d61b7;height: 65px; color:#fff;text-align: center;">
@@ -279,7 +277,7 @@ module.exports.booking = (req, res, next) => {
                             </tr>
                             <tr>
                                 <td  style="font-weight: bold; padding-bottom:7px;">Paid Amount</td>
-                                <td  style="float: right; padding-bottom:7px;">Rs : ` + afterDisc + `</td> 
+                                <td  style="float: right; padding-bottom:7px;">Rs : ` + dicountedAmt >= '0' ? afterDisc : finalAmtWithProm + `</td> 
                             </tr> 
                         </table>  
                     </td>
