@@ -1,5 +1,5 @@
 const express = require('express');
-//const ejs = require('ejs');
+const ejs = require('ejs');
 const nodemailer = require('nodemailer');
 //const app = express();
 
@@ -55,7 +55,7 @@ module.exports.booking = (req, res, next) => {
     booking.user_id = req._id;
   
     
-    //var travellers = booking.travellerDetails[0]?.passengerDetails?.traveller
+     var travellers = booking.travellerDetails[0]?.passengerDetails?.traveller
  
     // for(let i = 0; i < travellers.length; i++) {
     //     console.log(travellers[i].name , travellers[i].age );
@@ -96,9 +96,9 @@ module.exports.booking = (req, res, next) => {
     //         <td>${travellers[i].seatNo}</td>
     //     </tr>
     // }
-    // const travelData =   ejs.renderFile(__dirname + '/views/email.ejs', { 
-    //     data: travellers,
-    // });
+    const travelData =   ejs.renderFile(__dirname+'/email.ejs', { 
+        data: travellers,
+    });
     booking.save((err, doc) => { 
 
         if (!err) {
@@ -108,7 +108,7 @@ module.exports.booking = (req, res, next) => {
                 from: 'arun70840@gmail.com',
                 to: booking.user_email,
                 subject: 'My Travels',
-                html:    `  <table  width="100%" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
+                html:   travelData  `  <table  width="100%" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
                 <tr>
                     <td align="center" colspan="2" style="width:100%;font-size:18px; background-color: #0d61b7;height: 65px; color:#fff;text-align: center;">
                          Booking Confirmed !

@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Email Template</title>
 </head>
-<body>  
-    <ul>
-        <% for (let i = 0; i < data.length; i++) { %>
-            <li><%= data[i] %></li>
-        <% } %>
-    </ul>
+
+<body> 
+    <% for (let i=0; i < data.length; i++) { %>
+        <tr>
+            <td>${data[i].name}</td>
+            <td>${data[i].age}</td>
+            <td>${data[i].gender}</td>
+            <td>${data[i].seatNo}</td>
+        </tr>
+    <% } %>
 </body>
+
 </html>
