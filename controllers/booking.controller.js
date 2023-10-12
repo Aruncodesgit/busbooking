@@ -96,184 +96,43 @@ module.exports.booking = (req, res, next) => {
     //         <td>${travellers[i].seatNo}</td>
     //     </tr>
     // }
-    
+    // const travelData =   ejs.renderFile(__dirname+'/email.ejs', { 
+    //     data: travellers,
+    // });
+
+    let data = {
+        title: 'some title here',
+        body: 'some long text for the body here',
+        total: 1908.50
+      }; 
     booking.save((err, doc) => { 
 
         if (!err) {
             res.send(doc); 
-            const travelData =   ejs.renderFile(__dirname+'/email.ejs', { 
-                data: travellers,
-            });
-            var mailOptions1 = {
-                from: 'arun70840@gmail.com',
-                to: booking.user_email,
-                subject: 'My Travels',
-                html:   travelData  `  <table  width="100%" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
-                <tr>
-                    <td align="center" colspan="2" style="width:100%;font-size:18px; background-color: #0d61b7;height: 65px; color:#fff;text-align: center;">
-                         Booking Confirmed !
-                    </td>
-                </tr>  
-                <tr>
-                    <td align="left" colspan="2" style="padding:5px 30px;"> 
-                                         
-                    </td>
-               </tr>
-               <tr>
-                    <td   colspan="2" style="padding:10px 30px;"> 
-                      <img src="cid:confirm" style='width:60px;display:block;margin:auto;'/>                  
-                    </td>
-               </tr>
-               <tr>
-                    <td align="left" colspan="2" style="font-size:10px; padding:10px 30px 0px 30px;font-weight: bold;"> 
-                        Reservation Details
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left" colspan="2" style="padding:0px 30px;"> 
-                        <hr style="border-top: 1px solid #f7f7f7;"> 
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left" colspan="2" style="font-size:12px; padding:5px 30px;">
-                        Your booking is confirmed on ` + booking.bookedDate + `
-                     </td>
-                </tr>
-                <tr>
-                    <td align="left" colspan="2" style="font-size:10px; padding:0px 30px;"> 
-                      Booking ID #` + booking.bookingID + `
-                     </td>
-                </tr>
-                <tr>
-                    <td align="center" colspan="2" style="font-size:7px; padding:25px 30px;">
-                        <table style="width:100%;border-collapse: collapse;">
-                            <tr style="font-weight: bold;">
-                                <td>From</td>
-                                <td>To</td>
-                                <td>Date</td>
-                                <td>Departure Time</td>
-                            </tr>
-                            <tr>
-                                <td>` + booking.busFrom + `</td>
-                                <td>` + booking.busTo + `</td>
-                                <td>` + booking.bookedDate + `</td>
-                                <td>` + booking.busTimeFrom + `</td>
-                            </tr> 
-                            <tr>
-                                <td align="left"  style="padding:10px 30px;"> 
-                                     
-                                </td>
-                            </tr>
-                            <tr style="font-weight: bold;">
-                                <td>Arrival Time</td>
-                                <td>Journey Hours</td>
-                                <td>No. of Seats</td> 
-                                <td>Seat Type</td> 
-                            </tr>
-                            <tr>
-                                <td>` + booking.busTimeTo + `</td>
-                                <td>` + booking.busTravelTime + `</td>
-                                <td>` + booking.totalSeat + `</td> 
-                                <td>` + booking.seatType + `</td> 
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" colspan="2" style="font-size:7px; padding:0px 30px;">
-                        <table style="width: 100%;   border-collapse: collapse;">
-                            <tr style="font-weight: bold;">
-                                <td>Pick Up Point</td> 
-                            </tr>
-                            <tr>
-                                <td>` + pickup + `</td> 
-                            </tr> 
-                        </table>
-                    </td>
-                </tr>  
-                <tr>
-                    <td align="left" colspan="2" style="font-size:10px; padding:10px 30px 0px 30px;font-weight: bold;"> 
-                        Traveller details
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left" colspan="2" style="padding:0px 30px;"> 
-                        <hr style="border-top: 1px solid #f7f7f7;"> 
-                    </td>
-                </tr> 
-                <tr>
-                    <td align="center" colspan="2" style="font-size:7px; padding:5px 30px;">
-                        <table style="width: 100%;    border-collapse: collapse;">
-                            <tr>
-                                
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left" colspan="2" style="font-size:10px; padding:10px 30px 0px 30px;font-weight: bold;"> 
-                        Fare details
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left" colspan="2" style="padding:0px 30px;"> 
-                        <hr style="border-top: 1px solid #f7f7f7;"> 
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" colspan="2" style="font-size:7px; padding:5px 30px;">
-                        <table style="width: 100%;    border-collapse: collapse;">
-                            <tr >
-                                <td style="font-weight: bold; padding-bottom:7px;">Price Per person</td>
-                                <td style="float: right; padding-bottom:7px;">Rs : ` + pricePerHead + `</td> 
-                            </tr>
-                            <tr>
-                                <td  style="font-weight: bold; padding-bottom:7px;">Sub Total</td>
-                                <td  style="float: right; padding-bottom:7px;">Rs : ` + subtotal + `</td> 
-                            </tr>
-                            <tr>
-                                <td  style="font-weight: bold; padding-bottom:7px;">GST 5%</td>
-                                <td  style="float: right; padding-bottom:7px;">Rs : ` + gst + `</td> 
-                            </tr>
-                            <tr>
-                                <td  style="font-weight: bold; padding-bottom:7px;">Basic Fare</td>
-                                <td  style="float: right; padding-bottom:7px;">Rs : ` + totalFare + `</td> 
-                            </tr>
-                            <tr>
-                                <td  style="font-weight: bold; padding-bottom:7px;">Booking Discount</td>
-                                <td  style="float: right; padding-bottom:7px;">Rs : ` + dicountedAmt + `</td> 
-                            </tr>
-                            <tr>
-                                <td  style="font-weight: bold; padding-bottom:7px;">Final Paid Amount</td>
-                                <td  style="float: right; padding-bottom:7px;">Rs : ` + afterDisc + `</td> 
-                            </tr>
-                            <tr>
-                            <td  style="font-weight: bold; padding-bottom:7px;">Promo Code Discount</td>
-                                <td  style="float: right; padding-bottom:7px;">Rs : ` + promoAmt + `</td> 
-                            </tr>
-                            <tr>
-                                <td  style="font-weight: bold; padding-bottom:7px;">Final Paid Amount After Promo Code Discount</td>
-                                <td  style="float: right; padding-bottom:7px;">Rs : ` + finalAmtWithPro + `</td> 
-                            </tr>
-                        </table>  
-                    </td>
-                </tr>
-            </table> ` ,
-            attachments: [{
-                filename: 'confirmed.png',
-                path: __dirname+'/confirmed.png',
-                cid: 'confirm'  
-            }],
-            };
-            transporter1.sendMail(mailOptions1, function (error, info) {
-                if (error) {
-                    console.log(error);
-                }
-                else {
-                    console.log(info);
-                }
+            ejs.renderFile('order.mail.ejs', data, {}, function(err, str) {
+                if(!err) {
+                    var mailOptions1 = {
+                        from: 'arun70840@gmail.com',
+                        to: booking.user_email,
+                        subject: 'My Travels',
+                        html:  str ,
+                        attachments: [{
+                            filename: 'confirmed.png',
+                            path: __dirname+'/confirmed.png',
+                            cid: 'confirm'  
+                        }],
+                    };
+                    transporter1.sendMail(mailOptions1, function (error, info) {
+                        if (error) {
+                            console.log(error);
+                        }
+                        else {
+                            console.log(info);
+                        }
 
-            })
+                    })
+                }
+            });
         }
         else {
             return next(err);
