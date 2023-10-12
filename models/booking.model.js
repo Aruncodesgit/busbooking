@@ -19,10 +19,7 @@ var bookingSchema = new mongoose.Schema({
     status  :String,
     bookedDate  :String,
     totalSeat:  Number,
-    user_email :{ 
-        ref: "User",
-        required :true
-    },
+    user_email : String,
     user_id :{
         type: mongoose.Schema.Types.ObjectId, 
         ref: "User",
