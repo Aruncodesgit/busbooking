@@ -67,7 +67,7 @@ module.exports.booking = (req, res, next) => {
     var gst = booking.busFare[2]?.gst
     var totalFare = booking.busFare[3]?.totalFare
     var dicountedAmt = booking.busFare[5]?.dicountedAmt
-
+    $('#appendData').append(dicountedAmt);
     if (dicountedAmt === null) {
         dicountedAmt = 0;
     }
@@ -75,22 +75,19 @@ module.exports.booking = (req, res, next) => {
     if (afterDisc === null) {
         afterDisc = totalFare;
     }
-    else {
-        var afterDisc =  totalFare - dicountedAmt
-    }
 
     if (booking.promoAmount > 1) {
         var promoAmt = booking.promoAmount
-        var afterDisc = booking.finalAmoutWithPromo
+        var finalAmtWithProm = booking.finalAmoutWithPromo
     }
     if (booking.promoAmount < 1) {
         var promoAmt = 0;
-        var afterDisc = totalFare;
+        var finalAmtWithProm = totalFare;
     }
-
+    
     var saved = promoAmt + dicountedAmt
 
-
+    
 
     // for (${i=0}; ${i < travellers.length}; ${i++}) {
     //     <tr>
@@ -280,7 +277,8 @@ module.exports.booking = (req, res, next) => {
                             </tr>
                             <tr>
                                 <td  style="font-weight: bold; padding-bottom:7px;">Paid Amount</td>
-                                <td  style="float: right; padding-bottom:7px;">Rs : ` + afterDisc + `</td> 
+                                <td  style="float: right; padding-bottom:7px;">Rs : ` + afterDisc + `</td>
+                                <td  style="float: right; padding-bottom:7px;" id="appendData"> </td> 
                             </tr> 
                         </table>  
                     </td>
