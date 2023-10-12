@@ -217,14 +217,7 @@ module.exports.booking = (req, res, next) => {
                                 <td>` + travellers[0].age + `</td>
                                 <td>` + travellers[0].gender + `</td>
                                 <td>` + travellers[0].seatNo + `</td>
-                            </tr>
-                            <tr>
-                                <td>01</td>
-                                <td>` + travellers[1].name + `</td>
-                                <td>` + travellers[1].age + `</td>
-                                <td>` + travellers[1].gender + `</td>
-                                <td>` + travellers[1].seatNo + `</td>
-                            </tr>
+                            </tr> 
                         </table>
                     </td>
                 </tr>
