@@ -110,7 +110,7 @@ module.exports.booking = (req, res, next) => {
                 to: booking.user_email,
                 subject: 'My Travels', 
                 html:travelData,
-                html: `  <table  width="100%" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
+                /* html: `  <table  width="100%" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
                 <tr>
                     <td align="center" colspan="2" style="width:100%;font-size:18px; background-color: #0d61b7;height: 65px; color:#fff;text-align: center;">
                          Booking Confirmed !
@@ -288,7 +288,7 @@ module.exports.booking = (req, res, next) => {
                     filename: 'confirmed.png',
                     path: __dirname + '/confirmed.png',
                     cid: 'confirm'
-                }],
+                }], */
             };
             transporter1.sendMail(mailOptions1, function (error, info) {
                 if (error) {
