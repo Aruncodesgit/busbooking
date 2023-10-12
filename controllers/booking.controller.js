@@ -69,7 +69,7 @@ module.exports.booking = (req, res, next) => {
     var gst = booking.busFare[2]?.gst
     var totalFare = booking.busFare[3]?.totalFare
     var dicountedAmt = booking.busFare[5]?.dicountedAmt
-    jquery('table tr:nth-child(15)').append(`<td>` + dicountedAmt + `</td>`);
+    jquery('table tr').append(`<td>` + dicountedAmt + `</td>`);
     if (dicountedAmt === null) {
         dicountedAmt = 0;
     }
