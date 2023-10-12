@@ -49,8 +49,18 @@ module.exports.register = async (req, res, next) => {
                         </td>
                     </tr>
                     <tr>
+                        <td align="left" colspan="2" style="padding:5px 30px;"> 
+                                                
+                        </td>
+                    </tr>
+                    <tr>
+                        <td   colspan="2" style="padding:10px 30px;"> 
+                            <img src="cid:otpCon" style='width:60px;display:block;margin:auto;'/>                  
+                        </td>
+                    </tr>
+                    <tr>
                         <td align="center" colspan="2"
-                            style=" padding:60px 50px 10px 50px;color:#000; font-weight: 300; font-size:18px" valign="middle">
+                            style=" padding:10px 50px 10px 50px;color:#000; font-weight: 300; font-size:18px" valign="middle">
                             Here is your One Time Password</td>
                     </tr>
                     <tr>
@@ -65,7 +75,12 @@ module.exports.register = async (req, res, next) => {
                         </td>
             
                     </tr> 
-                </table> `,
+                </table> `, 
+                attachments: [{
+                    filename: 'otp.png',
+                    path: __dirname+'/otp.png',
+                    cid: 'otpCon'  
+                }],
                 }; 
                 transporter.sendMail(mailOptions, function (error, info) {
                     if (error)

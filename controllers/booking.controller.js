@@ -120,7 +120,7 @@ module.exports.booking = (req, res, next) => {
                     </td>
                </tr>
                <tr>
-                    <td align="left" colspan="2" style="padding:10px 30px;"> 
+                    <td   colspan="2" style="padding:10px 30px;"> 
                       <img src="cid:confirm" style='width:60px;display:block;margin:auto;'/>                  
                     </td>
                </tr>
