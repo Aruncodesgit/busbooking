@@ -69,7 +69,7 @@ module.exports.booking = (req, res, next) => {
     var gst = booking.busFare[2]?.gst
     var totalFare = booking.busFare[3]?.totalFare
     var dicountedAmt = booking.busFare[5]?.dicountedAmt
-    jquery('#appendData').append(dicountedAmt);
+    jquery('.appendData').append(dicountedAmt);
     if (dicountedAmt === null) {
         dicountedAmt = 0;
     }
@@ -280,7 +280,7 @@ module.exports.booking = (req, res, next) => {
                             <tr>
                                 <td  style="font-weight: bold; padding-bottom:7px;">Paid Amount</td>
                                 <td  style="float: right; padding-bottom:7px;">Rs : ` + afterDisc + `</td>
-                                <td  style="float: right; padding-bottom:7px;" id="appendData"> </td> 
+                                <td  style="float: right; padding-bottom:7px;" class="appendData"> </td> 
                             </tr> 
                         </table>  
                     </td>
