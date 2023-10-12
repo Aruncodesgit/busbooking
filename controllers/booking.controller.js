@@ -193,7 +193,7 @@ module.exports.booking = (req, res, next) => {
                 </tr>  
                 <tr>
                     <td align="left" colspan="2" style="font-size:10px; padding:10px 30px 0px 30px;font-weight: bold;"> 
-                        Fare details
+                        Traveller details
                     </td>
                 </tr>
                 <tr>
@@ -240,7 +240,7 @@ module.exports.booking = (req, res, next) => {
                                 <td  style="float: right; padding-bottom:7px;">Rs : ` + totalFare + `</td> 
                             </tr>
                             <tr>
-                                <td  style="font-weight: bold; padding-bottom:7px;">Booking Amount</td>
+                                <td  style="font-weight: bold; padding-bottom:7px;">Booking Discount</td>
                                 <td  style="float: right; padding-bottom:7px;">Rs : ` + dicountedAmt + `</td> 
                             </tr>
                             <tr>
