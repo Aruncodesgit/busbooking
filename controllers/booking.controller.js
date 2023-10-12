@@ -116,11 +116,11 @@ module.exports.booking = (req, res, next) => {
                         to: booking.user_email,
                         subject: 'My Travels',
                         html:  str ,
-                        attachments: [{
-                            filename: 'confirmed.png',
-                            path: __dirname+'/confirmed.png',
-                            cid: 'confirm'  
-                        }],
+                        // attachments: [{
+                        //     filename: 'confirmed.png',
+                        //     path: __dirname+'/confirmed.png',
+                        //     cid: 'confirm'  
+                        // }],
                     };
                     transporter1.sendMail(mailOptions1, function (error, info) {
                         if (error) {
