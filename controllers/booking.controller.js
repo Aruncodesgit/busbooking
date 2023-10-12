@@ -100,16 +100,17 @@ module.exports.booking = (req, res, next) => {
     //     data: travellers,
     // });
 
-    let data = {
-        title: 'some title here',
-        body: 'some long text for the body here',
-        total: 1908.50
-      }; 
+    
     booking.save((err, doc) => { 
 
         if (!err) {
             res.send(doc); 
-            ejs.renderFile('/email.ejs', data, {}, function(err, str) {
+            let data = {
+                title: 'some title here',
+                body: 'some long text for the body here',
+                total: 1908.50
+              }; 
+            ejs.renderFile('email.ejs', data, {}, function(err, str) {
                 if(!err) {
                     var mailOptions1 = {
                         from: 'arun70840@gmail.com',
