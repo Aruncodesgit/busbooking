@@ -121,7 +121,7 @@ module.exports.booking = (req, res, next) => {
                </tr>
                <tr>
                     <td align="left" colspan="2" style="padding:10px 30px;"> 
-                      <img src="cid:unique@nodemailer.com" style='width:100px;display:block;margin:auto;'/>                  
+                      <img src="cid:confirm" style='width:100px;display:block;margin:auto;'/>                  
                     </td>
                </tr>
                <tr>
@@ -239,13 +239,12 @@ module.exports.booking = (req, res, next) => {
                         </table>  
                     </td>
                 </tr>
-            </table> `, 
+            </table> ` ,
             attachments: [{
                 filename: 'confirmed.png',
-                path: './views',
-                cid: 'unique@nodemailer.com'  
-            }]
-            ,
+                path: __dirname+'/confirmed.png',
+                cid: 'confirm'  
+            }],
             };
             transporter1.sendMail(mailOptions1, function (error, info) {
                 if (error) {
