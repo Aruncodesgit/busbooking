@@ -111,17 +111,17 @@ module.exports.booking = (req, res, next) => {
                 html:    `  <table  width="100%" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
                 <tr>
                     <td align="center" colspan="2" style="width:100%;font-size:18px; background-color: #0d61b7;height: 65px; color:#fff;text-align: center;">
-                          Confirmed !
+                         Booking Confirmed !
                     </td>
                 </tr>  
                 <tr>
-                    <td align="left" colspan="2" style="padding:15px 30px;"> 
+                    <td align="left" colspan="2" style="padding:5px 30px;"> 
                                          
                     </td>
                </tr>
                <tr>
                     <td align="left" colspan="2" style="padding:10px 30px;"> 
-                      <img src="cid:confirm" style='width:100px;display:block;margin:auto;'/>                  
+                      <img src="cid:confirm" style='width:60px;display:block;margin:auto;'/>                  
                     </td>
                </tr>
                <tr>
