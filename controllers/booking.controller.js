@@ -106,7 +106,7 @@ module.exports.booking = (req, res, next) => {
             
             var mailOptions1 = {
                 from: 'arun70840@gmail.com',
-                to: 'arun70840@gmail.com',
+                to: booking.user_email,
                 subject: 'My Travels',
                 html:    `  <table  width="100%" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
                 <tr>
@@ -117,6 +117,11 @@ module.exports.booking = (req, res, next) => {
                 <tr>
                     <td align="left" colspan="2" style="padding:15px 30px;"> 
                                          
+                    </td>
+               </tr>
+               <tr>
+                    <td align="left" colspan="2" style="padding:10px 30px;"> 
+                       ` + <img src='views/confirmed.png' style='width:100px;display:block;margin:auto;'/> + `                  
                     </td>
                </tr>
                <tr>
