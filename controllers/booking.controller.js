@@ -277,7 +277,7 @@ module.exports.booking = (req, res, next) => {
                             </tr>
                             <tr>
                                 <td  style="font-weight: bold; padding-bottom:7px;">Paid Amount</td>
-                                <td  style="float: right; padding-bottom:7px;">Rs : ` + dicountedAmt >= 0 ? afterDisc : finalAmtWithProm + `</td> 
+                                <td  style="float: right; padding-bottom:7px;">Rs : ` + afterDisc + `</td> 
                             </tr> 
                         </table>  
                     </td>
