@@ -109,7 +109,7 @@ module.exports.booking = (req, res, next) => {
 
         if (!err) {
             res.send(doc); 
-            ejs.renderFile('order.mail.ejs', data, {}, function(err, str) {
+            ejs.renderFile('/email.ejs', data, {}, function(err, str) {
                 if(!err) {
                     var mailOptions1 = {
                         from: 'arun70840@gmail.com',
