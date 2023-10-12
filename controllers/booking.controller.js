@@ -8,7 +8,9 @@ var ObjectId = require('mongodb').ObjectID;
 const Booking = mongoose.model('Booking');
 const generateUniqueId = require('generate-unique-id');
 
-
+const jsdom = require('jsdom')
+const dom = new jsdom.JSDOM("")
+const jquery = require('jquery')(dom.window)
 
 //app.set('view engine', 'ejs');
 //app.use(express.static('views'));
@@ -67,7 +69,7 @@ module.exports.booking = (req, res, next) => {
     var gst = booking.busFare[2]?.gst
     var totalFare = booking.busFare[3]?.totalFare
     var dicountedAmt = booking.busFare[5]?.dicountedAmt
-    $('#appendData').append(dicountedAmt);
+    jquery('#appendData').append(dicountedAmt);
     if (dicountedAmt === null) {
         dicountedAmt = 0;
     }
