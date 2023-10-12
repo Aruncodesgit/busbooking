@@ -276,7 +276,7 @@ module.exports.booking = (req, res, next) => {
                                 <td colspan="2" style="padding-bottom:7px;border-top:1px dashed #e3e3e3;"></td>
                             </tr>
                             <tr>
-                                <td  style="font-weight: bold; padding-bottom:7px;">Final Paid Amount</td>
+                                <td  style="font-weight: bold; padding-bottom:7px;">Paid Amount</td>
                                 <td  style="float: right; padding-bottom:7px;">Rs : ` + afterDisc + `</td> 
                             </tr>
                             
