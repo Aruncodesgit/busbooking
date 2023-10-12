@@ -78,11 +78,11 @@ module.exports.booking = (req, res, next) => {
 
     if (booking.promoAmount > 1) {
         var promoAmt = booking.promoAmount
-        var finalAmtWithPro = booking.finalAmoutWithPromo
+        var afterDisc = booking.finalAmoutWithPromo
     }
     if (booking.promoAmount < 1) {
         var promoAmt = 0;
-        var finalAmtWithPro = totalFare;
+        var afterDisc = totalFare;
     }
 
     var saved = promoAmt + dicountedAmt
@@ -278,12 +278,7 @@ module.exports.booking = (req, res, next) => {
                             <tr>
                                 <td  style="font-weight: bold; padding-bottom:7px;">Paid Amount</td>
                                 <td  style="float: right; padding-bottom:7px;">Rs : ` + afterDisc + `</td> 
-                            </tr>
-                            
-                            <tr>
-                                <td  style="font-weight: bold; padding-bottom:7px;">Final Paid Amount After Promo Code Discount</td>
-                                <td  style="float: right; padding-bottom:7px;">Rs : ` + finalAmtWithPro + `</td> 
-                            </tr>
+                            </tr> 
                         </table>  
                     </td>
                 </tr>
