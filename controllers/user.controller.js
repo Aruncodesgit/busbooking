@@ -157,7 +157,7 @@ module.exports.authenticate = (req, res, next) => {
         // registered user
         else if (user) { 
             if (user.otp == 'yes') {
-                res.status(200).json({ _id: user._id, fullName: user.fullName, role: user.role, "token": user.generateJwt() });
+                res.status(200).json({ _id: user._id, email: user.email, fullName: user.fullName, role: user.role, "token": user.generateJwt() });
                 
             }
             else { 
