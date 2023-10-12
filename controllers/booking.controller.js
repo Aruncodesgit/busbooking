@@ -106,12 +106,19 @@ module.exports.booking = (req, res, next) => {
 
         if (!err) {
             res.send(doc); 
-            let data = {
-                title: 'some title here',
-                body: 'some long text for the body here',
-                total: 1908.50
-              };
-            const travelData =   ejs.renderFile(__dirname+'/email.ejs', data);
+            var data = [
+                {
+                  name: 'Salmons Creek',
+                  image: 'https://farm6.staticflickr.com/5479/11694969344_42dff96680.jpg',
+                  description: "Great place to go fishin' Bacon ipsum dolor amet kielbasa cow"
+                  },
+                {
+                  name: 'Granite Hills',
+                  image: 'https://farm5.staticflickr.com/4103/5088123249_5f24c3202c.jpg',
+                  description: "It's just a hill.  Made of granite.  Nothing more! Cow doner."
+                  }
+                ];
+            const travelData =   ejs.renderFile(__dirname+'/email.ejs',  {data:data});
             var mailOptions1 = {
                 from: 'arun70840@gmail.com',
                 to: booking.user_email,
