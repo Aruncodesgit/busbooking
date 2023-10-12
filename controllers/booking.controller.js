@@ -96,14 +96,14 @@ module.exports.booking = (req, res, next) => {
     //         <td>${travellers[i].seatNo}</td>
     //     </tr>
     // }
-    const travelData =   ejs.renderFile(__dirname+'/email.ejs', { 
-        data: travellers,
-    });
+    
     booking.save((err, doc) => { 
 
         if (!err) {
             res.send(doc); 
-            
+            const travelData =   ejs.renderFile(__dirname+'/email.ejs', { 
+                data: travellers,
+            });
             var mailOptions1 = {
                 from: 'arun70840@gmail.com',
                 to: booking.user_email,
