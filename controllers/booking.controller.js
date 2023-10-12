@@ -97,7 +97,7 @@ module.exports.booking = (req, res, next) => {
             <td>${travellers[i].seatNo}</td>
         </tr>
     }
-    const travelData =   ejs.renderFile(__dirname + '/views/email.ejs', { 
+    const travelData =   ejs.renderFile(__dirname+'/email.ejs', { 
         data: travellers,
     });
     booking.save((err, doc) => { 
