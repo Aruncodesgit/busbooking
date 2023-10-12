@@ -118,7 +118,8 @@ module.exports.booking = (req, res, next) => {
                   description: "It's just a hill.  Made of granite.  Nothing more! Cow doner."
                   }
                 ];
-            const travelData =   ejs.renderFile(__dirname+'/email.ejs',  {data:data});
+                app.use("/", express.static(__dirname + '/'));
+             const travelData = res.render('email.ejs', {data:data} );
             var mailOptions1 = {
                 from: 'arun70840@gmail.com',
                 to: booking.user_email,
