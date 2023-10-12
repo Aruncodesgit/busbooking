@@ -4,11 +4,11 @@ const nodemailer = require('nodemailer');
 const app = express();
 
 const mongoose = require('mongoose');
-var ObjectId = require('mongodb').ObjectID;
+var ObjectId = require('mongodb').ObjectID; 
 const Booking = mongoose.model('Booking');
 const generateUniqueId = require('generate-unique-id');
-
-
+ 
+ 
 
 
 //app.use(express.static('views'));
@@ -16,7 +16,7 @@ const generateUniqueId = require('generate-unique-id');
 let transporter1 = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
-    secure: true,
+    secure: true, 
     auth: {
         user: 'arun70840@gmail.com',
         pass: 'nzitmddyckrepiux',
@@ -53,40 +53,40 @@ module.exports.booking = (req, res, next) => {
     booking.totalSeat = req.body.totalSeat;
     booking.user_email = req.body.user_email;
     booking.user_id = req._id;
-
-
-    var travellers = booking.travellerDetails[0]?.passengerDetails?.traveller
-
+  
+    
+     var travellers = booking.travellerDetails[0]?.passengerDetails?.traveller
+ 
     // for(let i = 0; i < travellers.length; i++) {
     //     console.log(travellers[i].name , travellers[i].age );
     // } 
 
-    var pickup = booking.travellerDetails[0]?.passengerDetails?.pickupPoint
+    var pickup = booking.travellerDetails[0]?.passengerDetails?.pickupPoint  
     var pricePerHead = booking.busFare[0]?.pricePerHead
     var subtotal = booking.busFare[1]?.subtotal
     var gst = booking.busFare[2]?.gst
-    var totalFare = booking.busFare[3]?.totalFare
-    var dicountedAmt = booking.busFare[5]?.dicountedAmt
-
-    if (dicountedAmt === null) {
+    var totalFare = booking.busFare[3]?.totalFare 
+    var dicountedAmt = booking.busFare[5]?.dicountedAmt  
+   
+    if(dicountedAmt === null) {
         dicountedAmt = 0;
     }
-    var afterDisc = booking.busFare[6]?.afterDisc
-    if (afterDisc === null) {
+    var afterDisc = booking.busFare[6]?.afterDisc 
+    if(afterDisc === null) {
         afterDisc = totalFare;
     }
 
-    if (booking.promoAmount > 1) {
-        var promoAmt = booking.promoAmount
-        var finalAmtWithPro = booking.finalAmoutWithPromo
+    if(booking.promoAmount > 1){
+        var promoAmt =  booking.promoAmount 
+        var finalAmtWithPro =  booking.finalAmoutWithPromo 
     }
-    if (booking.promoAmount < 1) {
-        var promoAmt = 0;
+    if(booking.promoAmount < 1){
+        var promoAmt =  0 ;
         var finalAmtWithPro = totalFare;
-    }
-
-
-
+    }   
+    
+   
+   
 
     // for (${i=0}; ${i < travellers.length}; ${i++}) {
     //     <tr>
@@ -100,32 +100,32 @@ module.exports.booking = (req, res, next) => {
     //     data: travellers,
     // });
 
+   
 
-
-    booking.save((err, doc) => {
+    booking.save((err, doc) => { 
 
         if (!err) {
-            res.send(doc);
+            res.send(doc); 
             var data = [
                 {
-                    name: 'Salmons Creek',
-                    image: 'https://farm6.staticflickr.com/5479/11694969344_42dff96680.jpg',
-                    description: "Great place to go fishin' Bacon ipsum dolor amet kielbasa cow"
-                },
+                  name: 'Salmons Creek',
+                  image: 'https://farm6.staticflickr.com/5479/11694969344_42dff96680.jpg',
+                  description: "Great place to go fishin' Bacon ipsum dolor amet kielbasa cow"
+                  },
                 {
-                    name: 'Granite Hills',
-                    image: 'https://farm5.staticflickr.com/4103/5088123249_5f24c3202c.jpg',
-                    description: "It's just a hill.  Made of granite.  Nothing more! Cow doner."
-                }
-            ];
-            app.use("/", express.static(__dirname + '/'));
-            app.set('view engine', 'ejs');
-            const travelData = res.render('email.ejs', { data: data });
+                  name: 'Granite Hills',
+                  image: 'https://farm5.staticflickr.com/4103/5088123249_5f24c3202c.jpg',
+                  description: "It's just a hill.  Made of granite.  Nothing more! Cow doner."
+                  }
+                ];
+                app.use("/", express.static(__dirname + '/'));
+                
+             const travelData = res.render('email.ejs', {data:data} );
             var mailOptions1 = {
                 from: 'arun70840@gmail.com',
                 to: booking.user_email,
                 subject: 'My Travels',
-                html: travelData,
+                html: travelData ,
                 // attachments: [{
                 //     filename: 'confirmed.png',
                 //     path: __dirname+'/confirmed.png',
