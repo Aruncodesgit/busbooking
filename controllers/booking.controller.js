@@ -75,6 +75,9 @@ module.exports.booking = (req, res, next) => {
     if (afterDisc === null) {
         afterDisc = totalFare;
     }
+    else {
+        var afterDisc =  totalFare - dicountedAmt
+    }
 
     if (booking.promoAmount > 1) {
         var promoAmt = booking.promoAmount
