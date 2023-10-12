@@ -69,7 +69,7 @@ module.exports.booking = (req, res, next) => {
     var gst = booking.busFare[2]?.gst
     var totalFare = booking.busFare[3]?.totalFare
     var dicountedAmt = booking.busFare[5]?.dicountedAmt
-    jquery('table tr').append(`<td>` + dicountedAmt + `</td>`);
+    
     if (dicountedAmt === null) {
         dicountedAmt = 0;
     }
@@ -106,7 +106,7 @@ module.exports.booking = (req, res, next) => {
 
         if (!err) {
             res.send(doc);
-
+            jquery('table').css( 'display', 'none');
             var mailOptions1 = {
                 from: 'arun70840@gmail.com',
                 to: booking.user_email,
@@ -279,8 +279,7 @@ module.exports.booking = (req, res, next) => {
                             </tr>
                             <tr>
                                 <td  style="font-weight: bold; padding-bottom:7px;">Paid Amount</td>
-                                <td  style="float: right; padding-bottom:7px;">Rs : ` + afterDisc + `</td>
-                                <td  style="float: right; padding-bottom:7px;" class="appendData"> </td> 
+                                <td  style="float: right; padding-bottom:7px;">Rs : ` + afterDisc + `</td> 
                             </tr> 
                         </table>  
                     </td>
