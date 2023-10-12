@@ -16,10 +16,10 @@ var bookingSchema = new mongoose.Schema({
     busTimeTo :  String,
     busTravelTime :  String,
     bookedDate  :String,
+    user_email:  String,
     status  :String,
     bookedDate  :String,
     totalSeat:  Number,
-    user_email : String,
     user_id :{
         type: mongoose.Schema.Types.ObjectId, 
         ref: "User",

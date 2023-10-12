@@ -51,8 +51,9 @@ module.exports.booking = (req, res, next) => {
     booking.travellerDetails = req.body.travellerDetails;
     booking.status = req.body.status;
     booking.totalSeat = req.body.totalSeat;
-    booking.user_id = req._id;
     booking.user_email = req.body.user_email;
+    booking.user_id = req._id;
+  
     
     //var travellers = booking.travellerDetails[0]?.passengerDetails?.traveller
  
