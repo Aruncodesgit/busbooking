@@ -119,7 +119,7 @@ module.exports.booking = (req, res, next) => {
                 }
             ]; 
 
-            const travelData =  ejs.renderFile(__dirname+'/email.ejs', { data: data });
+            const travelData =  ejs.renderFile('email.ejs', { data: data });
             var mailOptions1 = {
                 from: 'arun70840@gmail.com',
                 to: booking.user_email,
