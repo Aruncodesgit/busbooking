@@ -1,7 +1,7 @@
 const express = require('express');
 const ejs = require('ejs');
 const nodemailer = require('nodemailer');
-//const app = express();
+const app = express();
 
 const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectID; 
@@ -10,7 +10,7 @@ const generateUniqueId = require('generate-unique-id');
  
  
 
-//app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
 //app.use(express.static('views'));
 
 let transporter1 = nodemailer.createTransport({
