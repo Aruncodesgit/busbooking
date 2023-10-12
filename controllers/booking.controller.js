@@ -192,7 +192,7 @@ module.exports.booking = (req, res, next) => {
                     </td>
                 </tr>  
                 <tr>
-                    <td align="left" colspan="2" style="font-size:10px; padding:10px 30px 0px 30px;font-weight: bold;"> 
+                    <td align="left" colspan="2" style="font-size:10px; padding:20px 30px 0px 30px;font-weight: bold;"> 
                         Traveller details
                     </td>
                 </tr>
@@ -203,26 +203,26 @@ module.exports.booking = (req, res, next) => {
                 </tr> 
                 <tr>
                     <td align="center" colspan="2" style="font-size:7px; padding:5px 30px;">
-                        <table style="width: 100%;    border-collapse: collapse;">
+                        <table style="width: 100%;   border-collapse: collapse;">
                             <tr>
-                                <th>Sl No.</th>
-                                <th>Name</th>
-                                <th>Age</th>
-                                <th>Gender</th>
-                                <th>Seat No.</th>
+                                <th style='text-align:left;'>Sl No.</th>
+                                <th style='text-align:left;'>Name</th>
+                                <th style='text-align:left;'>Age</th>
+                                <th style='text-align:left;'>Gender</th>
+                                <th style='text-align:left;'>Seat No.</th>
                             </tr>
                             <tr>
                                 <td>01</td>
-                                <td>` + travellers[0].name + `</td>
-                                <td>` + travellers[0].age + `</td>
-                                <td>` + travellers[0].gender + `</td>
-                                <td>` + travellers[0].seatNo + `</td>
+                                <td style='text-align:left;'>` + travellers[0].name + `</td>
+                                <td style='text-align:left;'>` + travellers[0].age + `</td>
+                                <td style='text-align:left;'>` + travellers[0].gender + `</td>
+                                <td style='text-align:left;'>` + travellers[0].seatNo + `</td>
                             </tr> 
                         </table>
                     </td>
                 </tr>
                 <tr>
-                    <td align="left" colspan="2" style="font-size:10px; padding:10px 30px 0px 30px;font-weight: bold;"> 
+                    <td align="left" colspan="2" style="font-size:10px; padding:20px 30px 0px 30px;font-weight: bold;"> 
                         Fare details
                     </td>
                 </tr>
