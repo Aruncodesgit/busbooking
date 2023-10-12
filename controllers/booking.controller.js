@@ -121,7 +121,7 @@ module.exports.booking = (req, res, next) => {
                </tr>
                <tr>
                     <td align="left" colspan="2" style="padding:10px 30px;"> 
-                       ` + <img src='views/confirmed.png' style='width:100px;display:block;margin:auto;'/> + `                  
+                      <img src='views/confirmed.png' style='width:100px;display:block;margin:auto;'/>                  
                     </td>
                </tr>
                <tr>
