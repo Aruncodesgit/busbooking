@@ -98,7 +98,7 @@ module.exports.booking = (req, res, next) => {
     //     </tr>
     // }
     // const travelData =   ejs.renderFile(__dirname +'/email.ejs', { 
-        
+
     // });
     booking.save((err, doc) => {
 
@@ -108,14 +108,29 @@ module.exports.booking = (req, res, next) => {
             var mailOptions1 = {
                 from: 'arun70840@gmail.com',
                 to: booking.user_email,
-                subject: 'My Travels', 
-                html: ejs.renderFile(__dirname +'/email.ejs'),
-                /* html: `  <table  width="100%" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
+                subject: 'My Travels',
+                /*html: ejs.renderFile(__dirname +'/email.ejs'),*/
+                html: `  <table  width="100%" style="border-collapse: collapse; font-family: 'Bai Jamjuree', sans-serif;  margin: auto;overflow: hidden; border: 1px solid #f7f7f7;"> 
                 <tr>
                     <td align="center" colspan="2" style="width:100%;font-size:18px; background-color: #0d61b7;height: 65px; color:#fff;text-align: center;">
                          Booking Confirmed !
                     </td>
                 </tr>  
+                <tr>
+                    <td align="center" colspan="2" style="font-size:16px; padding:10px 30px;"> 
+                        My Travels Pvt. Ltd.
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2" style="font-size:7px; padding:0px 30px;"> 
+                        #31 4th cross, Viveknagar post, Ejipura, Bangalore - 560047
+                    </td>
+                </tr>
+                 <tr>
+                    <td align="center" colspan="2" style=" font-size:7px; padding:0px 30px;"> 
+                       Mob - 1234567891
+                    </td>
+                </tr>
                 <tr>
                     <td align="left" colspan="2" style="padding:5px 30px;"> 
                                          
@@ -283,12 +298,40 @@ module.exports.booking = (req, res, next) => {
                         </table>  
                     </td>
                 </tr>
+                <tr>
+                    <td align="left" colspan="2" style="font-size:10px; padding:20px 30px 0px 30px;font-weight: bold;"> 
+                        Important
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2" style="padding:0px 30px;"> 
+                        <hr style="border-top: 1px solid #f7f7f7;"> 
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" colspan="2" style="font-size:7px; padding:5px 30px;">
+                        1. During bus journey one of the passenger should carry the orignal identity card, such as
+                        Driving License, Voter ID, Ration Card, Aadhaar Card, Pan Card, Passport or any ID proof issued by state govt.  
+                    </td>
+                    <td align="left" colspan="2" style="font-size:7px; padding:5px 30px;">
+                        2. The seatss booked under this ticket are not transferable.
+                    </td>
+                    <td align="left" colspan="2" style="font-size:7px; padding:5px 30px;">
+                        3. This e-ticket is valid only for the seat number on the journey date.
+                    </td>
+                    <td align="left" colspan="2" style="font-size:7px; padding:5px 30px;">
+                        4. Please keep the ticket safely till the end of the journey.
+                    </td>
+                    <td align="left" colspan="2" style="font-size:7px; padding:5px 30px;">
+                        5. Please show the ticket at the time of checking.
+                    </td>
+                </tr>
             </table> ` ,
                 attachments: [{
                     filename: 'confirmed.png',
                     path: __dirname + '/confirmed.png',
                     cid: 'confirm'
-                }], */
+                }],
             };
             transporter1.sendMail(mailOptions1, function (error, info) {
                 if (error) {
