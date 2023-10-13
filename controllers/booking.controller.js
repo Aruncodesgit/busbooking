@@ -313,15 +313,21 @@ module.exports.booking = (req, res, next) => {
                         1. During bus journey one of the passenger should carry the orignal identity card, such as
                         Driving License, Voter ID, Ration Card, Aadhaar Card, Pan Card, Passport or any ID proof issued by state govt.  
                     </td>
+                </tr>
+                <tr>
                     <td align="left" colspan="2" style="font-size:7px; padding:5px 30px;">
                         2. The seatss booked under this ticket are not transferable.
                     </td>
+                </tr>
                     <td align="left" colspan="2" style="font-size:7px; padding:5px 30px;">
                         3. This e-ticket is valid only for the seat number on the journey date.
                     </td>
+                <tr>
                     <td align="left" colspan="2" style="font-size:7px; padding:5px 30px;">
                         4. Please keep the ticket safely till the end of the journey.
                     </td>
+                </tr>
+                <tr>
                     <td align="left" colspan="2" style="font-size:7px; padding:5px 30px;">
                         5. Please show the ticket at the time of checking.
                     </td>
