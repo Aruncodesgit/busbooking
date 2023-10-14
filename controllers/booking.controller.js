@@ -62,28 +62,16 @@ module.exports.booking = (req, res, next) => {
     // } 
 
     var pickup = booking.travellerDetails[0]?.passengerDetails?.pickupPoint
-    var pricePerHead = booking.busFare[0]?.pricePerHead
-    var subtotal = booking.busFare[1]?.subtotal
-    var gst = booking.busFare[2]?.gst
-    var totalFare = booking.busFare[3]?.totalFare
-    var dicountedAmt = booking.busFare[5]?.dicountedAmt
 
+    var pricePerHead = booking.busFare[0]?.pricePerHead
+    var subtotal = booking.busFare[0]?.subtotal
+    var gst = booking.busFare[0]?.gst
+    var totalFare = booking.busFare[0]?.totalFare
+    var dicountedAmt = booking.busFare[0]?.dicountedAmt
+    var promoAmt = booking.busFare[0]?.promocode     
     if (dicountedAmt === null) {
         dicountedAmt = 0;
-    }
-    var afterDisc = booking.busFare[6]?.afterDisc
-    if (afterDisc === null) {
-        afterDisc = totalFare;
-    }
-
-    if (booking.promoAmount > 1) {
-        var promoAmt = booking.promoAmount
-        var finalAmtWithProm = booking.finalAmoutWithPromo
-    }
-    if (booking.promoAmount < 1) {
-        var promoAmt = 0;
-        var finalAmtWithProm = totalFare;
-    }
+    }  
 
     var saved = promoAmt + dicountedAmt
 
@@ -265,11 +253,7 @@ module.exports.booking = (req, res, next) => {
                             <tr>
                                 <td  style="font-weight: bold; padding-bottom:7px;">GST 5%</td>
                                 <td  style="float: right; padding-bottom:7px;">Rs : ` + gst + `</td> 
-                            </tr>
-                            <tr>
-                                <td  style="font-weight: bold; padding-bottom:7px;">Basic Fare</td>
-                                <td  style="float: right; padding-bottom:7px;">Rs : ` + totalFare + `</td> 
-                            </tr>
+                            </tr> 
                             <tr>
                                 <td colspan="2" style="padding-bottom:7px;border-top:1px dashed #e3e3e3;"></td>
                             </tr>
@@ -293,7 +277,7 @@ module.exports.booking = (req, res, next) => {
                             </tr>
                             <tr>
                                 <td  style="font-weight: bold; padding-bottom:7px;">Paid Amount</td>
-                                <td  style="float: right; padding-bottom:7px;">Rs : ` + afterDisc + `</td> 
+                                <td  style="float: right; padding-bottom:7px;">Rs : ` + totalFare + `</td> 
                             </tr> 
                         </table>  
                     </td>
