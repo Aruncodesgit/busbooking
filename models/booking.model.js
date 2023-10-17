@@ -1,4 +1,15 @@
 const mongoose = require('mongoose');  
+
+const fareSchema = new mongoose.Schema({
+    perhead :  Number,
+    subTotal :  Number,
+    gst :  Number,
+    discountVal :  Number,
+    discountedAmt :  Number,
+    promoCodeAmount :  Number,
+    totalFare :  Number
+});
+
 var bookingSchema = new mongoose.Schema({   
 
     busId :  String,
@@ -6,7 +17,7 @@ var bookingSchema = new mongoose.Schema({
     bookingID: String,
     travellerDetails : [  ],
     seatType :  String,
-    busFare :  [  ],
+    busFare :  [ fareSchema ],
     busFrom :  String,
     promoID :  String,
     promoAmount :  Number,
