@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');  
 
 const fareSchema = new mongoose.Schema({
-    perhead :  Number,
-    subTotal :  Number,
+    pricePerHead :  Number,
+    subtotal :  Number,
     gst :  Number,
     discountVal :  Number,
-    discountedAmt :  Number,
-    promoCodeAmount :  Number,
+    dicountedAmt  :  Number,
+    promocode :  Number,
     totalFare :  Number
 });
 
